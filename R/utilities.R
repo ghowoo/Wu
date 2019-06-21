@@ -1,4 +1,4 @@
-#' A notin Function
+#' Utility Functions
 #'
 #' This function allows you to negate the \%in\% function.
 #' @param 
@@ -6,10 +6,12 @@
 #' @export
 #' @examples
 #' \%notin\%
-#' @rdname notin
 #'
 #' 
 
+Utilities <- function(){
+    print("Utilities")
+}
 
 `%notin%` <- Negate(`%in%`)
 
