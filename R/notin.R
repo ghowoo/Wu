@@ -1,4 +1,4 @@
-#' A `%notin%` Function
+#' A notin Function
 #'
 #' This function allows you to negate the %in% function.
 #' @param 
@@ -12,3 +12,5 @@
 
 
 `%notin%` <- Negate(`%in%`)
+
+
