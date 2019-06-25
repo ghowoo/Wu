@@ -4,9 +4,9 @@
 \alias{styling}
 \title{A styling Function}
 \usage{
-styling(full_width = FALSE, bootstrap_options = c("striped", "hover",
-  "condensed", "responsive"), position = "left", fixed_thead = TRUE,
-  ...)
+styling(..., full_width = FALSE, bootstrap_options = c("striped",
+  "hover", "condensed", "responsive"), position = "left",
+  fixed_thead = TRUE)
 }
 \description{
 This function allows you to styling your html output.
