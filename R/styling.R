@@ -1,13 +1,13 @@
-#' A style Function
+#' A styling Function
 #'
-#' This function allows you to style your html output.
+#' This function allows you to styling your html output.
 #' @param 
 #' @keywords style html
 #' @export
 #' @examples
-#' stl()
+#' styling()
 
-stl <- function(
+styling <- function(
                 full_width = FALSE
               , bootstrap_options = c("striped", "hover", "condensed", "responsive")
               , position = "left"
