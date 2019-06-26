@@ -13,7 +13,7 @@ wrtColumns <- function(obj,file){
     rtn <- data.frame(
         name = colnames(obj)
       , label = unlist(sapply(obj, label))
-      , class = unlist(lapply(sapply(data,class),function(x) x[length(x)]))
+      , class = unlist(lapply(sapply(obj,class),function(x) x[length(x)]))
     )
     rownames(rtn) <- NULL
     write.csv(rtn,file=file,row.names = FALSE)
