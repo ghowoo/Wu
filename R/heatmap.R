@@ -7,12 +7,12 @@
 #' @examples
 #' heatmap()
 
-heatmap <- function(obj, title = "", width = 800, height = 800){
+heatmap <- function(obj, title = "R-squared Matrix", width = 800, height = 800){
     obj <- Wu::delete_single_value_column(obj)
     obj <- as.data.frame(obj)
     cor_matrix <- Wu::cors_mixed(obj)
-    cor_matrix <- cor_matrix^2
-    cor_matrix <- round(cor_matrix, 3)
+    ## cor_matrix <- cor_matrix^2
+    cor_matrix <- round(cor_matrix, 2)
     trace1 <- list(
         type = "heatmap"
       , x = colnames(cor_matrix)
@@ -22,10 +22,12 @@ heatmap <- function(obj, title = "", width = 800, height = 800){
 
     library(plotly)
     library(Wu)
-    vals <- unique(c(0, scales::rescale(c(cor_matrix))))
-    o <- order(vals, decreasing = FALSE)
-    cols <- scales::col_numeric("Blues", domain = NULL)(vals)
-    colz <- setNames(data.frame(vals[o], cols[o]), NULL)
+    ## vals <- unique(c(0, scales::rescale(c(cor_matrix))))
+    vals <- sort(unique(c(0, c(cor_matrix))))
+    ## o <- order(vals, decreasing = FALSE)
+    ## cols <- scales::col_numeric("Blues", domain = NULL)(vals)
+    cols <- topo.colors(length(vals))
+    colz <- setNames(data.frame(vals, cols), NULL)
 
     layout <- list(title = title)
     p <- plotly::plot_ly(colorscale = colz)
@@ -38,7 +40,7 @@ heatmap <- function(obj, title = "", width = 800, height = 800){
     p <- plotly::layout(
                      p
                    , title = layout$title
-                   , xaxis = list(side = "top")
+                   , xaxis = list(side = "bottom")
                    , width = width
                    , height = height)
     p
