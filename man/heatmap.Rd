@@ -4,7 +4,8 @@
 \alias{heatmap}
 \title{A heatmap Function}
 \usage{
-heatmap(obj, title = "R-squared Matrix", width = 800, height = 800)
+heatmap(obj, title = "Matrix of R-squared", width = 800,
+  height = 800, pallete = "Blues")
 }
 \description{
 This function allows you to create a heatmap.

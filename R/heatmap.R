@@ -7,7 +7,12 @@
 #' @examples
 #' heatmap()
 
-heatmap <- function(obj, title = "R-squared Matrix", width = 800, height = 800){
+heatmap <- function(
+                    obj
+                  , title = "Matrix of R-squared"
+                  , width = 800
+                  , height = 800
+                  , pallete = "Blues"){
     obj <- Wu::delete_single_value_column(obj)
     obj <- as.data.frame(obj)
     cor_matrix <- Wu::cors_mixed(obj)
@@ -26,7 +31,8 @@ heatmap <- function(obj, title = "R-squared Matrix", width = 800, height = 800){
     vals <- sort(unique(c(0, c(cor_matrix))))
     ## o <- order(vals, decreasing = FALSE)
     ## cols <- scales::col_numeric("Blues", domain = NULL)(vals)
-    cols <- topo.colors(length(vals))
+    ## cols <- heat.colors(length(vals))
+    cols <- grDevices::colorRampPalette(RColorBrewer::brewer.pal(9, pallete)[2:9])(length(vals))
     colz <- setNames(data.frame(vals, cols), NULL)
 
     layout <- list(title = title)
