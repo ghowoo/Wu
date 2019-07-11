@@ -10,10 +10,9 @@
 
 cramersV <- function(..., correct = FALSE) {
     test <- chisq.test(...)
-    chi2 <- test$statistic
     N <- sum(test$observed)
     k <- min(dim(test$observed))
-    V <- sqrt(chi2 / (N * (k - 1)))
+    V <- sqrt(test$statistic / (N * (k - 1)))
     names(V) <- NULL
     return(V)
 }

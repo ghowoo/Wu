@@ -7,7 +7,7 @@
 #' @examples
 #' heatmap()
 
-heatmap <- function(obj, title = ""){
+heatmap <- function(obj, title = "", width = 800, height = 800){
     obj <- Wu::delete_single_value_column(obj)
     obj <- as.data.frame(obj)
     cor_matrix <- Wu::cors_mixed(obj)
@@ -22,8 +22,13 @@ heatmap <- function(obj, title = ""){
 
     library(plotly)
     library(Wu)
+    vals <- unique(c(0, scales::rescale(c(cor_matrix))))
+    o <- order(vals, decreasing = FALSE)
+    cols <- scales::col_numeric("Blues", domain = NULL)(vals)
+    colz <- setNames(data.frame(vals[o], cols[o]), NULL)
+
     layout <- list(title = title)
-    p <- plotly::plot_ly(colors = colorRamp(c("#DDFFF7", Wu::Blues(1))))
+    p <- plotly::plot_ly(colorscale = colz)
     p <- plotly::add_trace(
                      p
                    , type = trace1$type
@@ -34,7 +39,7 @@ heatmap <- function(obj, title = ""){
                      p
                    , title = layout$title
                    , xaxis = list(side = "top")
-                   , width = 1000
-                   , height = 1200)
+                   , width = width
+                   , height = height)
     p
 }

@@ -7,13 +7,15 @@
 #' @examples
 #' add_level_na()
 
-add_level_na <- function(x){
+add_level_na <- function(x, drop1 = FALSE){
     x <- factor(x)
     levels(x) <- c(levels(x), "not available")
     x[is.na(x)] <- "not available"
     x <- droplevels(x)
     l1 <- levels(x)
-    l1 <- l1[-length(l1)]
+    if (drop1 == TRUE){
+        l1 <- l1[-length(l1)]
+    }
     x <- factor(x, levels = l1)
     return(x)
 }

@@ -4,7 +4,7 @@
 \alias{add_level_na}
 \title{A add_level_na function}
 \usage{
-add_level_na(x)
+add_level_na(x, drop1 = FALSE)
 }
 \description{
 This function allows you to add the level "not available" to a factor variable.
