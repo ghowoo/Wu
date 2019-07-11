@@ -12,7 +12,7 @@
 cor_mixed <- function(var1, var2){
     if (inherits(var1, c("integer", "numeric")) &&
         inherits(var2, c("integer", "numeric"))) {
-        return(summary(stats::lm(var1 ~ as.factor(var2)))[["r.squared"]])
+        return(summary(stats::lm(var1 ~ var2))[["r.squared"]])
     } else if (inherits(var1, c("integer", "numeric")) &&
                inherits(var2, c("factor", "character"))){
         return(summary(stats::lm(var1 ~ as.factor(var2)))[["r.squared"]])
