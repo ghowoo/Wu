@@ -1,0 +1,47 @@
+#TOC {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  overflow:auto;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  margin-left:450px;
+  line-height: 20px;
+  font-size: 16px
+}
+
+h1 {
+  background-color: #D4DAEC;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+h2 {
+  background-color: #D4DAEC;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+h3 {
+  background-color: #D4DAEC;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+div#TOC li {
+    list-style:none;
+    background-image:none;
+    background-repeat:none;
+    background-position:0;
+}
