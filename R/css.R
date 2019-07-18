@@ -8,4 +8,33 @@
 #' css()
 
 css <- function(){
+    txt <- download.file(url = "https://github.com/ghowoo/Wu/wu_css.css")
+    return(txt)
 }
+
+
+
+
+## readLines(file("../inst/blues.css"))
+
+## ?file.path
+## file.path("..", "inst", "blues.css")
+## exists(file.path("..", "inst", "blues.css"))
+## ?readLines
+
+## readtext
+
+## fileName <- 'foo.txt'
+## readChar(fileName, file.info(fileName)$size)
+
+
+## file.info("https://github.com/ghowoo/Wu/master/wu_css.css")$size
+
+## file_url <- "https://raw.github.com/ghowoo/Wu/master/wu_css.csv"
+
+## readr::read_file(file_url)
+
+## library(RCurl)
+## x <- getURL("https://raw.github.com/aronlindberg/latent_growth_classes/master/LGC_data.csv")
+## y <- read.csv(text = x)
+
