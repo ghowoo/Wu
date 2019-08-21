@@ -4,13 +4,14 @@
 \alias{ci_to_str}
 \title{A ci_to_str Function}
 \usage{
-ci_to_str(fit, lower, upper, digits = 2)
+ci_to_str(fit, lower, upper, digits = 3)
 }
 \description{
-This function allows you to build a text string of confidence interver.
+This function allows you to build a text string of confidence intervals. Notice that R round function goes to the even digit.
 }
 \examples{
-ci_to_str()
+ci_to_str(fit = 1.004, lower = 1.003, upper = 1.005001, digits = 3)
+ci_to_str(fit = 0.985, lower = .943, upper = 1.005001, digits = 2)
 }
 \keyword{ci}
 \keyword{confidence}
