@@ -7,12 +7,12 @@
 #' @examples
 #' label()
 
-
+#' @export
 label <- function(obj) {
   UseMethod("label")
 }
 
-
+#' @export
 label.default <- function(obj) {
     rtn <- attr(obj, which = "label", exact = TRUE)
     if (is.null(rtn)) {
@@ -21,12 +21,12 @@ label.default <- function(obj) {
     return(rtn)
 }
 
-
+#' @export
 `label<-` <- function(obj, value) {
   UseMethod("label<-")
 }
 
-
+#' @export
 `label<-.default` <- function(obj, value) {
     attr(obj, "label") <- value
     obj
