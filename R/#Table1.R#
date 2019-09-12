@@ -7,24 +7,24 @@
 #' @examples
 #' Table1()
 
-get_tableone <- function(
-                         data
-                       , vars = Vars
-                       , factorVars = FactorVars
-                         , ...
-                         ){
+get_tableone <- function (
+                          data
+                        , vars = Vars
+                        , factorVars = FactorVars
+                        , ...
+                          ){
     t0 <- tableone::CreateTableOne(
-  data = df0
-  , vars = Vars
-  , factorVars = Vars
-  , includeNA = TRUE
-, test = FALSE
-  ## , strata = NULL
-  ## , strata = "intervention_type.factor"
-)
+                        data = df0
+                      , vars = Vars
+                      , factorVars = Vars
+                      , includeNA = TRUE
+                      , test = FALSE
+                        ## , strata = NULL
+                        ## , strata = "intervention_type.factor"
+                    )
     if (missing(strata)){
         t <- 
-    }
+            }
 }
 
 # Table1 <- Table1(...) {
