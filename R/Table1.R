@@ -23,7 +23,7 @@ get_tableone <- function(
   ## , strata = "intervention_type.factor"
 )
     if (missing(strata)){
-        t <- 
+        ## t <- 
     }
 }
 
