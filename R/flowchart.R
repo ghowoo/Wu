@@ -11,7 +11,7 @@
 
 
 flowchart <- function(data, vars, top = "Total", font_size = 30, icon_size = 80, edge_width = 10, plot_height = "800px", plot_width = "100%"){
-
+require(visNetwork)
     nodes <-  get_nodes(
         data
       , vars
