@@ -8,5 +8,5 @@
 #' prtVector()
 
 prtVector <- function(v){
-  return(cat(paste('\"',(trimws(v)),'\"',sep=""),sep="\n,"))
+  return(cat(paste('\"', (trimws(v)), '\"', sep = ""), sep = "\n, "))
 }
