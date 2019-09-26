@@ -5,7 +5,7 @@
 \title{A Table1 Function}
 \usage{
 Table1(data, Vars, FactorVars, NonNormals = NULL, Strata,
-  contDigits = 1, ...)
+  contDigits = 1, minMax = FALSE, ...)
 }
 \description{
 This function allows you to create table one.

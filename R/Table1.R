@@ -14,6 +14,7 @@ Table1 <- function(
                  , NonNormals = NULL
                  , Strata
                  , contDigits = 1
+                 , minMax = FALSE
                  , ...
                    ){
     tableone::CreateTableOne(
@@ -30,6 +31,7 @@ Table1 <- function(
           , contDigits = contDigits
           , varLabels = TRUE
           , missing = TRUE
+          , minMax = minMax
         ) %>%
         data.frame(
             what = gsub("  ", " ", rownames(.), fixed = TRUE)
@@ -53,6 +55,7 @@ Table1 <- function(
           , contDigits = contDigits
           , varLabels = TRUE
           , missing = TRUE
+          , minMax = minMax
         ) %>%
         data.frame(
             what             = gsub("  ", " ", rownames(.), fixed = TRUE)
