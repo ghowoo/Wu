@@ -22,7 +22,7 @@ get_edges <- function(nodes){
     ][name_self_l == name_parent_r
       ][, from := id_l
         ][, to := id_r
-          ][, arrows := "to"
+          ][, arrows := "middle"
             ][, width := size_r]
     return(l1)
 }
