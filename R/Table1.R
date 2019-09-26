@@ -7,65 +7,59 @@
 #' @examples
 #' Table1()
 
-get_tableone <- function(
-                         data
-                       , vars = Vars
-                       , factorVars = FactorVars
-                         , ...
-                         ){
-    t0 <- tableone::CreateTableOne(
-  data = df0
-  , vars = Vars
-  , factorVars = Vars
-  , includeNA = TRUE
-, test = FALSE
-  ## , strata = NULL
-  ## , strata = "intervention_type.factor"
-)
-    if (missing(strata)){
-        ## t <- 
-    }
+Table1 <- function(
+                   data
+                 , Vars
+                 , FactorVars
+                 , NonNormals = NULL
+                 , Strata
+                 , contDigits = 1
+                 , ...
+                   ){
+    tableone::CreateTableOne(
+                  data = data
+                , vars = Vars
+                , factorVars = FactorVars
+                , includeNA = TRUE
+                , test = FALSE
+              ) %>%
+        print(
+            printToggle = FALSE
+          , showAllLevels    = TRUE
+          , nonnormal = NonNormals
+          , contDigits = contDigits
+          , varLabels = TRUE
+          , missing = TRUE
+        ) %>%
+        data.frame(
+            what = gsub("  ", " ", rownames(.), fixed = TRUE)
+          , .
+          , row.names = NULL
+          , check.names = FALSE
+          , stringsAsFactors = FALSE) -> t0
+
+    tableone::CreateTableOne(
+                  data = data
+                , vars = Vars
+                , factorVars = FactorVars
+                , includeNA = TRUE
+                , test = FALSE
+                , strata = Strata
+              ) %>%
+        print(
+            printToggle = FALSE
+          , showAllLevels = TRUE
+          , nonnormal = NonNormals
+          , contDigits = contDigits
+          , varLabels = TRUE
+          , missing = TRUE
+        ) %>%
+        data.frame(
+            what             = gsub("  ", " ", rownames(.), fixed = TRUE)
+          , .
+          , row.names        = NULL
+          , check.names      = FALSE
+          , stringsAsFactors = FALSE) -> t1
+    t <- cbind(t0[, 1:3], t1[, 3:ncol(t1)])
+    return(t)
 }
-
-# Table1 <- Table1(...) {
-#   tableone::CreateTableOne(...
-#   ) %>% 
-#     print(
-#       printToggle = FALSE,
-#       , showAllLevels = TRUE
-#       , nonnormal = NonNormal
-#       , contDigits = 1
-#       , varLabels = TRUE
-#     ) %>% 
-#     {data.frame(
-#       what             = gsub("  ", " ", rownames(.), fixed = TRUE), ., 
-#       row.names        = NULL, 
-#       check.names      = FALSE, 
-#       stringsAsFactors = FALSE)} -> TableForPrint0
-#   
-#   tableone::CreateTableOne(
-#     data = df
-#     ,vars = Vars
-#     ,factorVars = FactorVars
-#     ,includeNA=TRUE
-#     ,strata = "obese_group"
-#     ,test=TRUE
-#   ) %>% 
-#     print(
-#       printToggle      = FALSE,
-#       showAllLevels    = TRUE,
-#       cramVars         = "kon"
-#       ,nonnormal = NonNormal
-#       ,contDigits = 1
-#       ,varLabels = TRUE
-#     ) %>% 
-#     {data.frame(
-#       what             = gsub("  ", " ", rownames(.), fixed = TRUE), ., 
-#       row.names        = NULL, 
-#       check.names      = FALSE, 
-#       stringsAsFactors = FALSE)} -> TableForPrint1
-#   
-#   TableForPrint <- cbind(TableForPrint0[,c("Overall")],TableForPrint1)
-#   TableForPrint <- TableForPrint[,c(2,3,1,4,5,6,7,8)]
-# }
-
