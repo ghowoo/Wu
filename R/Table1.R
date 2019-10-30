@@ -15,6 +15,7 @@ Table1 <- function(
                  , Strata
                  , contDigits = 1
                  , minMax = FALSE
+                 , Test = FALSE
                  , ...
                    ){
     tableone::CreateTableOne(
@@ -22,7 +23,7 @@ Table1 <- function(
                 , vars = Vars
                 , factorVars = FactorVars
                 , includeNA = TRUE
-                , test = FALSE
+                , test = Test
               ) %>%
         print(
             printToggle = FALSE
@@ -45,7 +46,7 @@ Table1 <- function(
                 , vars = Vars
                 , factorVars = FactorVars
                 , includeNA = TRUE
-                , test = FALSE
+                , test = Test
                 , strata = Strata
               ) %>%
         print(
