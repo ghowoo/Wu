@@ -15,7 +15,9 @@ Depends:
 	, lubridate
 	, magrittr
 	, tableone
+	, DT
 	, ggplot2
+	, gridExtra
 	, plotly
 	, knitr
 	, kableExtra
@@ -25,12 +27,14 @@ Depends:
 	, png
 Imports:
     data.table
+    , DT
     , plyr
     , dplyr
     , lubridate
     , magrittr
     , tableone
     , ggplot2
+    , gridExtra
     , knitr
     , labelled
     , kableExtra
