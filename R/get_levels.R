@@ -31,10 +31,15 @@ get_levels <- function(data, vars = NULL){
         lapply(vars, function(x){
             ifelse(Wu::label(data[[x]]) == "", x, Wu::label(data[[x]]))
         }))
-    data.table::data.table(
+    rtn <- data.table::data.table(
                     var_name = rep(vars, times = num_levels)
+                  , var_order = rep(1:length(vars), times = num_levels)
                   , var_label = rep(var_labels, times = num_levels)
                   , coef_name = coefs
+                  , coef_order = 1:length(coefs)
                   , var_level = var_levels
-                )
+                    )
+    rtn <- trn[
+      , rn := 1:.N, by = list(var_name)
+    ][, var_label_o := ifelse(rn == 1, var_label, "")]
 }
