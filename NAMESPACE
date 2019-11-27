@@ -2,6 +2,7 @@
 
 S3method("label<-",default)
 S3method(label,default)
+S3method(model_data,lmerMod)
 export("%notin%")
 export("label<-")
 export(Blues)
