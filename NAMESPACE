@@ -2,7 +2,9 @@
 
 S3method("label<-",default)
 S3method(label,default)
+S3method(model_coef,lmerMod)
 S3method(model_data,lmerMod)
+S3method(model_vars,lmerMod)
 export("%notin%")
 export("label<-")
 export(Blues)
