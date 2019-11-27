@@ -39,7 +39,8 @@ get_levels <- function(data, vars = NULL){
                   , coef_order = 1:length(coefs)
                   , var_level = var_levels
                     )
-    rtn <- trn[
+    rtn <- rtn[
       , rn := 1:.N, by = list(var_name)
     ][, var_label_o := ifelse(rn == 1, var_label, "")]
+    return(rtn)
 }
