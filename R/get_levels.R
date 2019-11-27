@@ -22,7 +22,7 @@ get_levels <- function(data, vars = NULL){
     var_levels <- unlist(
         lapply(vars, function(x){
             if(is.null(levels(data[[x]]))){
-                x
+                "per Unit"
             }else{
                 levels(data[[x]])
                 }

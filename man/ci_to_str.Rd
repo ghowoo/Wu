@@ -4,7 +4,7 @@
 \alias{ci_to_str}
 \title{A ci_to_str Function}
 \usage{
-ci_to_str(fit, lower, upper, digits = 3)
+ci_to_str(fit, lower, upper, digits = 2)
 }
 \description{
 This function allows you to build a text string of confidence intervals. Notice that R round function goes to the even digit.
