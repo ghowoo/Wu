@@ -14,3 +14,8 @@ model_data <- function(x, ...){
 model_data.lmerMod <- function(obj){
     obj@frame
 }
+
+#' @export
+model_data.glm <- function(obj){
+    obj$data
+}

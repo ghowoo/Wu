@@ -16,3 +16,8 @@ model_vars.lmerMod <- function(obj){
     terms <- attr(obj@frame, "terms")
     attr(terms, "varnames.fixed")
 }
+
+#' @export
+model_vars.glm <- function(obj){
+    names(attr(obj$terms, "dataClasses"))
+}
