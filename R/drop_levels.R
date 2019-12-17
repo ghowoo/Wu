@@ -8,11 +8,12 @@
 #'
 #' drop_levels()
 
-
+#' @export
 drop_levels <- function(df){
     UseMethod("drop_levels")
 }
 
+#' @export
 drop_levels.data.frame <- function(x, except = NULL, exclude, ...){
     ix <- vapply(x, is.factor, NA)
     if (!is.null(except))
@@ -23,6 +24,7 @@ drop_levels.data.frame <- function(x, except = NULL, exclude, ...){
     x
 }
 
+#' @export
 drop_levels.factor <- function(x, exclude = if (anyNA(levels(x))) NULL else NA, ...){
     lbl <- Wu::label(x)
     x <- factor(x, exclude = exclude)
