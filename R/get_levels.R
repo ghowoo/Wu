@@ -8,7 +8,7 @@
 #' get_levels()
 
 get_levels <- function(data, vars = NULL){
-    data <- droplevels(data)
+    data <- drop_levels(data)
     if(is.null(vars)){
         vars <- colnames(data)
     }
