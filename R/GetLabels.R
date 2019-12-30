@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords labels
 #' @export
-#' @examples
-#' GetLabels()
+
 
 GetLabels <- function(obj){
   rtn <- unlist(lapply(obj, label()))

@@ -9,7 +9,4 @@ GetLabels(obj)
 \description{
 This function allows you to get all labels from a dataframe.
 }
-\examples{
-GetLabels()
-}
 \keyword{labels}
