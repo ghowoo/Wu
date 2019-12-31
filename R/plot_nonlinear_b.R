@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords plot_nonlinear_b
 #' @export
-#' @examples
-#' plot_nonlinear_b()
+
 
 
 

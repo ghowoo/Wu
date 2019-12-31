@@ -9,9 +9,5 @@
 \description{
 This function allows you to negate the in function.
 }
-\examples{
-
-
-}
 \keyword{negate}
 \keyword{notin}

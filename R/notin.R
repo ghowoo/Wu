@@ -4,9 +4,7 @@
 #' @param 
 #' @keywords negate notin
 #' @export
-#' @examples
-#'
-#' 
+
 
 
 `%notin%` <- Negate(`%in%`)

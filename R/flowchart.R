@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords flowchart
 #' @export
-#' @examples
-#' flowchart()
+
 
 
 

@@ -9,8 +9,5 @@ Blues(n)
 \description{
 This function allows you to get a color of blue.
 }
-\examples{
-Blues()
-}
 \keyword{blue}
 \keyword{color}

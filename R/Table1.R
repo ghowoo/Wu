@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords table one
 #' @export
-#' @examples
-#' Table1()
+
 
 Table1 <- function(
                    data

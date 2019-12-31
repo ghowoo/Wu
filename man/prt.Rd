@@ -9,9 +9,6 @@ prt(dt, ...)
 \description{
 Print a table
 }
-\examples{
-
-}
 \keyword{a}
 \keyword{html}
 \keyword{print}

@@ -9,7 +9,4 @@ get_coef_name(obj)
 \description{
 This function allows you to get all coefficients names from a dataframe.
 }
-\examples{
-get_coef_name()
-}
 \keyword{coefficients}

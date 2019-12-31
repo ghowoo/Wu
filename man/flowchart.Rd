@@ -10,7 +10,4 @@ flowchart(data, vars, top = "Total", font_size = 30, icon_size = 80,
 \description{
 This function allows you to create a flowchart
 }
-\examples{
-flowchart()
-}
 \keyword{flowchart}

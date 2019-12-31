@@ -9,7 +9,4 @@ plot_nonlinear(y, x, data, k = 10, family = "binomial")
 \description{
 This function allows you to plot a graph on the nonlinear relationship of two variables.
 }
-\examples{
-plot_nonlinear()
-}
 \keyword{plot_nonlinear}

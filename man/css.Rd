@@ -9,8 +9,5 @@ css()
 \description{
 This function allows you to create a css style text
 }
-\examples{
-css()
-}
 \keyword{css}
 \keyword{html}

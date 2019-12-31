@@ -4,8 +4,6 @@
 #' @param 
 #' @keywords residual regression
 #' @export
-#' @examples
-#' residual_regression()
 
 residual_regression <- function(data,  outcome_x, outcome_y, predictors){
     get_residual <- function(data, outcome, predictors){

@@ -9,9 +9,6 @@ add_level_na(x, drop1 = FALSE)
 \description{
 This function allows you to add the level "not available" to a factor variable.
 }
-\examples{
-add_level_na()
-}
 \keyword{available,}
 \keyword{level}
 \keyword{na,}

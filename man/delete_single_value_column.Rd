@@ -9,9 +9,6 @@ delete_single_value_column(obj)
 \description{
 This function allows you to delete all columns in a data.frame or data.table that have only one unique values (missing value included)
 }
-\examples{
-delete_single_value_column()
-}
 \keyword{columns}
 \keyword{delete}
 \keyword{single}

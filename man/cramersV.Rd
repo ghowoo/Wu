@@ -9,8 +9,5 @@ cramersV(..., correct = FALSE)
 \description{
 This function allows you to calcualte Cramer's V
 }
-\examples{
-cramersV()
-}
 \keyword{Cramer's}
 \keyword{V}

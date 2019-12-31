@@ -4,8 +4,7 @@
 #' @param
 #' @keywords print table one
 #' @export
-#' @examples
-#' PrtTable1
+
 
 PrtTable1 <- function(){
   Text <- '

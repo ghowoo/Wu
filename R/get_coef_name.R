@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords coefficients
 #' @export
-#' @examples
-#' get_coef_name()
+
 
 
 get_coef_name <- function(obj){

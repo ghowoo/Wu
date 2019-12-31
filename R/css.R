@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords css html
 #' @export
-#' @examples
-#' css()
+
 
 
 css <- function(){

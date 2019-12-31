@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords p-value
 #' @export
-#' @examples
-#' describe_pvalue()
+
 
 pvalue_description <- function(...
                              , label = c(

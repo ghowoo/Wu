@@ -10,7 +10,4 @@ heatmap(obj, title = "Matrix of R-squared", width = 800,
 \description{
 This function allows you to create a heatmap.
 }
-\examples{
-heatmap()
-}
 \keyword{heatmap}

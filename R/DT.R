@@ -4,8 +4,7 @@
 #' @param
 #' @keywords DT datatable
 #' @export
-#' @examples
-#'
+
 
 DT <- function(obj, ...){
     DT::datatable(

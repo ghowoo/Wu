@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords correlation
 #' @export
-#' @examples
-#' cors_mixed()
+
 
 cors_mixed <- function(df){
     stopifnot(inherits(df, c("data.frame", "data.table")))

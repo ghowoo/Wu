@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords one-hot dummy variable
 #' @export
-#' @examples
-#' one_hot()
+
 
 one_hot <- function(data, vars_numeric, vars_factor){
     require(data.table)

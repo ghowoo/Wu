@@ -3,8 +3,7 @@
 #' This function allows you to catch the names of variables from a model object
 #' @param
 #' @keywords model variables
-#' @examples
-#' model_vars()
+
 
 #' @export
 model_vars <- function(x, ...){

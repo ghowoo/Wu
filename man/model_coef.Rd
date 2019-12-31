@@ -9,8 +9,5 @@ model_coef(x, ...)
 \description{
 This function allows you to catch the names of coefficients from a model object
 }
-\examples{
-model_coef()
-}
 \keyword{coefficients}
 \keyword{model}

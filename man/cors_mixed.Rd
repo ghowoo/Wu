@@ -9,7 +9,4 @@ cors_mixed(df)
 \description{
 This function allows you to calculate correlation between multiple variables mixed with continuous and categorical variables.
 }
-\examples{
-cors_mixed()
-}
 \keyword{correlation}

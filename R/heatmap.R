@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords heatmap
 #' @export
-#' @examples
-#' heatmap()
+
 
 heatmap <- function(
                     obj

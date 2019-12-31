@@ -9,9 +9,6 @@ PrtTable1()
 \description{
 This function allows you to print table one.
 }
-\examples{
-PrtTable1
-}
 \keyword{one}
 \keyword{print}
 \keyword{table}

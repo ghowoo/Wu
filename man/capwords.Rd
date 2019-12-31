@@ -9,7 +9,4 @@ capwords(s, strict = FALSE)
 \description{
 This function allows you to capitalize your words.
 }
-\examples{
-capwords()
-}
 \keyword{capitalize}

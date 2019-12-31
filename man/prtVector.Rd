@@ -9,8 +9,5 @@ prtVector(v)
 \description{
 This function allows you to print a vector.
 }
-\examples{
-prtVector()
-}
 \keyword{print}
 \keyword{vector}

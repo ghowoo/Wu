@@ -12,7 +12,4 @@ pvalue_description(...,
 \description{
 This function describes how p values being calcualted
 }
-\examples{
-describe_pvalue()
-}
 \keyword{p-value}

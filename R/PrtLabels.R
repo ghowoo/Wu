@@ -4,8 +4,7 @@
 #' @param
 #' @keywords print column label
 #' @export
-#' @examples
-#' PrtLabels
+
 
 
 PrtLabels <- function(data,copy=TRUE,print=FALSE){

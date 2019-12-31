@@ -4,9 +4,7 @@
 #' @param 
 #' @keywords drop levels
 #' @export
-#' @examples
-#'
-#' drop_levels()
+
 
 #' @export
 drop_levels <- function(df){

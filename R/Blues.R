@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords color blue
 #' @export
-#' @examples
-#' Blues()
+
 
 Blues  <- function(n) {
     c(

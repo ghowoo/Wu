@@ -9,7 +9,4 @@ get_nodes(obj, vars, top)
 \description{
 This function allows you to get nodes
 }
-\examples{
-get_nodes()
-}
 \keyword{nodes}

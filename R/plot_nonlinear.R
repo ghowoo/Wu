@@ -4,8 +4,6 @@
 #' @param 
 #' @keywords plot_nonlinear
 #' @export
-#' @examples
-#' plot_nonlinear()
 
 
 

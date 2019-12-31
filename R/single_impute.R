@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords impute
 #' @export
-#' @examples
-#' single_impute()
+
 
 single_impute <- function(vctr){
     if (inherits(vctr, c("integer", "numeric"))) {

@@ -9,8 +9,5 @@ residual_regression(data, outcome_x, outcome_y, predictors)
 \description{
 Deming regression on two residuals of linear regression
 }
-\examples{
-residual_regression()
-}
 \keyword{regression}
 \keyword{residual}

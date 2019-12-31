@@ -9,9 +9,6 @@ percent(x, digits = 2, format = "f", ...)
 \description{
 This function allows you to format a number as a percentage.
 }
-\examples{
-percent()
-}
 \keyword{format}
 \keyword{percent}
 \keyword{percentage}

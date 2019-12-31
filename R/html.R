@@ -4,8 +4,7 @@
 #' @param
 #' @keywords html
 #' @export
-#' @examples
-#' html()
+
 
 html <- function(x) UseMethod("html")
 

@@ -9,8 +9,5 @@ model_data(x, ...)
 \description{
 This function allows you to catch the data.frame from a model object
 }
-\examples{
-model_data()
-}
 \keyword{data.frame}
 \keyword{model}

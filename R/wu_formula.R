@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords formula
 #' @export
-#' @examples
-#' wu_formula()
+
 
 wu_formula <- function(outcome, predictors){
     as.formula(paste0(

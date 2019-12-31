@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords rename variable name
 #' @export
-#' @examples
-#' renameVariables()
+
 
 renameVariables <- function(obj, lst){
     ColNames <- colnames(obj)

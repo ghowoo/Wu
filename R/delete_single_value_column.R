@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords delete single value columns
 #' @export
-#' @examples
-#' delete_single_value_column()
+
 
 delete_single_value_column <- function(obj){
     if (!(inherits(obj, "data.table"))){

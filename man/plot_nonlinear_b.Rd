@@ -9,7 +9,4 @@ plot_nonlinear_b(y, x, data, k = 10, family = "binomial")
 \description{
 This function allows you to plot a graph on the nonlinear relationship of two variables based on binned intervals of the x variable.
 }
-\examples{
-plot_nonlinear_b()
-}
 \keyword{plot_nonlinear_b}

@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords Deming regression
 #' @export
-#' @examples
-#' deming_regression()
+
 
 deming_regression <- function(x, y, lambda = 1){
     mu <- sum((x - mean(x))^2)

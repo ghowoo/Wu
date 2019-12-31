@@ -4,7 +4,7 @@
 #' @param 
 #' @keywords confidence interval, coefficient
 #' @export
-#' @examples
+
 
 model_ci <- function(obj, digits = 2, ...){
     UseMethod("model_ci")

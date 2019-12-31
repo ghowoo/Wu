@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords na, not available, level
 #' @export
-#' @examples
-#' add_level_na()
+
 
 add_level_na <- function(x, drop1 = FALSE){
     x <- factor(x)

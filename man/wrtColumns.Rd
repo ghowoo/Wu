@@ -9,7 +9,4 @@ wrtColumns(obj, file)
 \description{
 This function allows you to write down your columns.
 }
-\examples{
-wrtColumns
-}
 \keyword{columns}

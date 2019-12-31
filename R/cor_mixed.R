@@ -6,8 +6,7 @@
 #' @param 
 #' @keywords correlation
 #' @export
-#' @examples
-#' cor_mixed()
+
 
 cor_mixed <- function(var1, var2){
     if (inherits(var1, c("integer", "numeric")) &&

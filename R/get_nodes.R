@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords nodes
 #' @export
-#' @examples
-#' get_nodes()
+
 
 get_nodes <- function(obj, vars, top){
     df <- data.table::copy(obj)

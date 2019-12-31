@@ -11,8 +11,5 @@ styling(..., full_width = FALSE, bootstrap_options = c("striped",
 \description{
 This function allows you to styling your html output.
 }
-\examples{
-styling()
-}
 \keyword{html}
 \keyword{style}

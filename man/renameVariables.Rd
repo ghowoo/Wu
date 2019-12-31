@@ -9,9 +9,6 @@ renameVariables(obj, lst)
 \description{
 This function allows you to rename your variable names.
 }
-\examples{
-renameVariables()
-}
 \keyword{name}
 \keyword{rename}
 \keyword{variable}

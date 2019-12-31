@@ -9,9 +9,6 @@ one_hot(data, vars_numeric, vars_factor)
 \description{
 This function allows you to transform variables into dummy variables.
 }
-\examples{
-one_hot()
-}
 \keyword{dummy}
 \keyword{one-hot}
 \keyword{variable}

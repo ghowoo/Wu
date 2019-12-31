@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords Cramer's V
 #' @export
-#' @examples
-#' cramersV()
+
 
 
 cramersV <- function(..., correct = FALSE) {

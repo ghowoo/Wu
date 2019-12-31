@@ -9,9 +9,5 @@ drop_levels(df)
 \description{
 This function allows you to drop all unused levels in a data.frame.
 }
-\examples{
-
-drop_levels()
-}
 \keyword{drop}
 \keyword{levels}

@@ -9,7 +9,4 @@ single_impute(vctr)
 \description{
 This function single impute mean for missing values for continuous variable and add na as a category for missing values in categorical variable.
 }
-\examples{
-single_impute()
-}
 \keyword{impute}

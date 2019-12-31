@@ -9,9 +9,6 @@ PrtLabels(data, copy = TRUE, print = FALSE)
 \description{
 This function allows you to print column labels.
 }
-\examples{
-PrtLabels
-}
 \keyword{column}
 \keyword{label}
 \keyword{print}

@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords style html
 #' @export
-#' @examples
-#' styling()
+
 
 styling <- function(...
               ,  full_width = FALSE

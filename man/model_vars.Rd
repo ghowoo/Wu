@@ -9,8 +9,5 @@ model_vars(x, ...)
 \description{
 This function allows you to catch the names of variables from a model object
 }
-\examples{
-model_vars()
-}
 \keyword{model}
 \keyword{variables}

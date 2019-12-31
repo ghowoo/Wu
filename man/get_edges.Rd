@@ -9,7 +9,4 @@ get_edges(nodes)
 \description{
 This function allows you to get edges
 }
-\examples{
-get_edges()
-}
 \keyword{edge}

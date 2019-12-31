@@ -9,7 +9,4 @@ wu_formula(outcome, predictors)
 \description{
 This function allows you to create a formula by an outcome and a vector of predictors.
 }
-\examples{
-wu_formula()
-}
 \keyword{formula}

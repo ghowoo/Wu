@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords levels
 #' @export
-#' @examples
-#' get_levels()
+
 
 get_levels <- function(data, vars = NULL){
     data <- drop_levels(data)

@@ -9,7 +9,4 @@ get_levels(data, vars = NULL)
 \description{
 This function allows you to get levels of all variables of a data.frame.
 }
-\examples{
-get_levels()
-}
 \keyword{levels}

@@ -4,8 +4,7 @@
 #' @param
 #' @keywords html
 #' @export
-#' @examples
-#' to_html()
+
 
 to_html <- function(x){
     title <- deparse(substitute(x))

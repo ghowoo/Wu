@@ -10,8 +10,5 @@ Table1(data, Vars, FactorVars, NonNormals = NULL, Strata,
 \description{
 This function allows you to create table one.
 }
-\examples{
-Table1()
-}
 \keyword{one}
 \keyword{table}

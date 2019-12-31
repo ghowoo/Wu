@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords columns
 #' @export
-#' @examples
-#' wrtColumns
+
 
 
 wrtColumns <- function(obj,file){

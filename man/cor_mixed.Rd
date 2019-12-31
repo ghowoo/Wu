@@ -11,7 +11,4 @@ This function allows you to calculate correlation between two variables mixed wi
 If there are two continuous variables or one continuous and one categorical varialbe, the function returns r squared of the linear regression.
 If there are two categorical variables, the function returns Cramer's V squared.
 }
-\examples{
-cor_mixed()
-}
 \keyword{correlation}

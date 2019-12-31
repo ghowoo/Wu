@@ -9,8 +9,5 @@ deming_regression(x, y, lambda = 1)
 \description{
 This function allows you to run Deming regression.
 }
-\examples{
-deming_regression()
-}
 \keyword{Deming}
 \keyword{regression}

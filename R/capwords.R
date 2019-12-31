@@ -4,8 +4,7 @@
 #' @param 
 #' @keywords capitalize
 #' @export
-#' @examples
-#' capwords()
+
 
 capwords <- function(s, strict = FALSE) {
     s <- tolower(s)

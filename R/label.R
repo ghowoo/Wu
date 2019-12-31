@@ -4,10 +4,9 @@
 #' @param 
 #' @keywords label
 #' @export
-#' @examples
-#' label()
 
-#' @export
+
+
 label <- function(obj) {
   UseMethod("label")
 }

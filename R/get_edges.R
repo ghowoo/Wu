@@ -4,8 +4,6 @@
 #' @param 
 #' @keywords edge
 #' @export
-#' @examples
-#' get_edges()
 
 
 

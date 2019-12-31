@@ -9,7 +9,4 @@ label(obj)
 \description{
 This function allows you to get the attribute of label of a object. It is a modified version of the var_label function from the "labelled" package and allows to assign NULL value to a label.
 }
-\examples{
-label()
-}
 \keyword{label}

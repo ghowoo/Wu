@@ -9,8 +9,5 @@ DT(obj, ...)
 \description{
 Generate a DT datatable
 }
-\examples{
-
-}
 \keyword{DT}
 \keyword{datatable}

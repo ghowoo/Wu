@@ -9,7 +9,4 @@ to_html(x)
 \description{
 This function allows you to catch R output and export to html.
 }
-\examples{
-to_html()
-}
 \keyword{html}
