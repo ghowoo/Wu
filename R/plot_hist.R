@@ -29,6 +29,7 @@ plot_hist <- function(x){
 
 #' @export
 get_hist_count <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
+    require(data.table)
     if(is.null(xlabel)){
         xlabel <- if_else(Wu::label(x) %in% c(""), deparse(substitute(x)), Wu::label(x))
     }
