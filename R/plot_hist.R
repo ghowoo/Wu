@@ -119,17 +119,31 @@ plt_hist <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
           , width = ~ xint
           , hoverinfo = "text"
           , text = ~ str
+          , name = " "
+          , showlegend = FALSE
         ) %>%
         layout(
             bargap = 0
-          , xaxis = list(title = unique(h$x_label))
-          , yaxis = list(title = "Count")
-          , title = list(text = txt
-                       , y = 0.8
-                       , yanchor = "top"
-                       , x = 0.9
-                       , xanchor = "right"
+          , xaxis = list(title = unique(h$x_label)
+                       , zeroline = FALSE
+                       , showline = FALSE
+                       , width = 0
+                       , gridwidth = 0
                          )
+          , yaxis = list(title = "Count"
+                       , zeroline = FALSE
+                       , showline = FALSE
+                       , width = 0
+                       , gridwidth = 0
+                         )
+        ) %>%
+        add_segments(
+            x = min(x, na.rm = TRUE), xend = max(x, na.rm = TRUE)
+          , y = 0, yend = 0
+          , hoverinfo = "text"
+          , text = txt
+          , name = " "
+          , showlegend = FALSE
         )
 }
 
@@ -152,15 +166,34 @@ plt_hist_v <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
           , hoverinfo = "text"
           , text = ~ str
           , orientation = 'h'
+          , name = " "
+          , showlegend = FALSE
         ) %>%
         layout(
             bargap = 0
-          , yaxis = list(title = unique(h$x_label))
-          , xaxis = list(title = "Count")
-          , title = list(text = txt
-                       , side = "bottom")
+          , xaxis = list(title = unique(h$x_label)
+                       , zeroline = FALSE
+                       , showline = FALSE
+                       , width = 0
+                       , gridwidth = 0
+                         )
+          , yaxis = list(title = "Count"
+                       , zeroline = FALSE
+                       , showline = FALSE
+                       , width = 0
+                       , gridwidth = 0
+                         )
+        ) %>%
+        add_segments(
+            y = min(x, na.rm = TRUE), yend = max(x, na.rm = TRUE)
+          , x = 0, xend = 0
+          , hoverinfo = "text"
+          , text = txt
+          , name = " "
+          , showlegend = FALSE
         )
 }
+
 
 
 #' @export
