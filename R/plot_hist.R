@@ -125,7 +125,11 @@ plt_hist <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
           , xaxis = list(title = unique(h$x_label))
           , yaxis = list(title = "Count")
           , title = list(text = txt
-                       , side = "bottom")
+                       , y = 0.8
+                       , yanchor = "top"
+                       , x = 0.9
+                       , xanchor = "right"
+                         )
         )
 }
 
