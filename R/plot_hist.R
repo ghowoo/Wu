@@ -157,3 +157,45 @@ plt_hist_v <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
                        , side = "bottom")
         )
 }
+
+
+#' @export
+plt_ci <- function(data
+                 , x
+                 , xlabel = NULL
+                 , ylabel = NULL
+                 , fit
+                 , lower
+                 , upper){
+    x <- rlang::enquo(x)
+    fit <- rlang::enquo(fit)
+    lower <- rlang::enquo(lower)
+    upper <- rlang::enquo(upper)
+    plot_ly(data = data, x = x, y = fit, showlegend = FALSE) %>% 
+        add_lines(showlegend = FALSE) %>%
+        add_markers(showlegend = FALSE, name = " "
+                    ) %>%
+        add_ribbons(ymin = lower
+                  , ymax = upper
+                  , opacity = 0.3
+                  , line = list(opacity = 0, width = 0)
+                  , name = " "
+                  , showlegend = FALSE
+                    ) %>%
+        layout(xaxis = list(
+                   zeroline = FALSE
+                 , showline = FALSE
+                 , width = 0
+                 , gridwidth = 0
+                 , title = xlabel
+               )
+               , yaxis = list(
+                   zeroline = FALSE
+                 , showline = FALSE
+                 , width = 0
+                 , gridwidth = 0
+                 , title = ylabel
+               )
+               ) %>%
+        style(showlegend = FALSE) 
+}
