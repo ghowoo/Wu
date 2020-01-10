@@ -166,7 +166,14 @@ plt_ci <- function(data
                  , ylabel = NULL
                  , fit
                  , lower
-                 , upper){
+                 , upper
+                 , xrange = NULL
+                 , yrange = NULL
+                 , xtick0 = NULL
+                 , xdtick = NULL
+                 , ytick0 = NULL
+                 , ydtick = NULL
+                   ){
     x <- rlang::enquo(x)
     fit <- rlang::enquo(fit)
     lower <- rlang::enquo(lower)
@@ -188,6 +195,9 @@ plt_ci <- function(data
                  , width = 0
                  , gridwidth = 0
                  , title = xlabel
+                 , range = xrange
+                 , tick0 = xtick0
+                 , dtick = xdtick
                )
                , yaxis = list(
                    zeroline = FALSE
@@ -195,7 +205,68 @@ plt_ci <- function(data
                  , width = 0
                  , gridwidth = 0
                  , title = ylabel
+                 , range = yrange
+                 , tick0 = ytick0
+                 , dtick = ydtick
                )
                ) %>%
-        style(showlegend = FALSE) 
+        style(showlegend = FALSE) %>%
+        layout(height = 600, width = 1200)
+}
+
+
+#' @export
+plt_ci_g <- function(data
+                 , x
+                 , xlabel = NULL
+                 , ylabel = NULL
+                 , fit
+                 , lower
+                 , upper
+                 , group
+                 , xrange = NULL
+                 , yrange = NULL
+                 , xtick0 = NULL
+                 , xdtick = NULL
+                 , ytick0 = NULL
+                 , ydtick = NULL
+                   ){
+    x <- rlang::enquo(x)
+    fit <- rlang::enquo(fit)
+    lower <- rlang::enquo(lower)
+    upper <- rlang::enquo(upper)
+    group <- rlang::enquo(group)
+    plot_ly(data = data, x = x, y = fit, color = group, showlegend = FALSE) %>% 
+        add_lines(showlegend = FALSE, color = group) %>%
+        add_markers(showlegend = FALSE, color = group
+                    ) %>%
+        add_ribbons(ymin = lower
+                  , ymax = upper
+                  , color = group
+                  , opacity = 0.8
+                  , line = list(opacity = 0, width = 0)
+                  , showlegend = FALSE
+                    )  %>%
+        layout(xaxis = list(
+                   zeroline = FALSE
+                 , showline = FALSE
+                 , width = 0
+                 , gridwidth = 0
+                 , title = xlabel
+                 , range = xrange
+                 , tick0 = xtick0
+                 , dtick = xdtick
+               )
+               , yaxis = list(
+                   zeroline = FALSE
+                 , showline = FALSE
+                 , width = 0
+                 , gridwidth = 0
+                 , title = ylabel
+                 , range = yrange
+                 , tick0 = ytick0
+                 , dtick = ydtick
+               )
+               ) %>%
+        layout(height = 600, width = 1200)
 }
