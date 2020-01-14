@@ -37,7 +37,7 @@ get_hist_count <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NU
         xmin <- min(x, na.rm = TRUE)
     }
     if(is.null(xmax)){
-        xmin = max(x, na.rm = TRUE)
+        xmax = max(x, na.rm = TRUE)
     }
     if(is.null(xint)){
         xint <- (xmax - xmin)/20
@@ -121,6 +121,8 @@ plt_hist <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
           , text = ~ str
           , name = " "
           , showlegend = FALSE
+          , marker = list(color = Wu::Blues(15)
+                        , line = list(color = Wu::Blues(15), width = 0))
         ) %>%
         layout(
             bargap = 0
@@ -137,13 +139,29 @@ plt_hist <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
                        , gridwidth = 0
                          )
         ) %>%
+        add_trace(
+            mode = "markers"
+          , name = " "
+          , type = "scatter"
+          , x = ~ jitter(x, amount = 0.05)
+          , y = 0
+          , marker = list(
+                symbol = "line-ns-open"
+              , color = Wu::Blues(1)
+            )
+          , hovertemplate =  "%{x:.3f}"
+          , showlegend = FALSE
+          , opacity = 0.5
+        ) %>%
         add_segments(
             x = min(x, na.rm = TRUE), xend = max(x, na.rm = TRUE)
-          , y = 0, yend = 0
+          , y = -0.05, yend = -0.05
           , hoverinfo = "text"
           , text = txt
           , name = " "
           , showlegend = FALSE
+          , color = Wu::Blues(1)
+          , line = list(color = Wu::Blues(1), opacity = 0.5)
         )
 }
 
@@ -168,29 +186,47 @@ plt_hist_v <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
           , orientation = 'h'
           , name = " "
           , showlegend = FALSE
+          , marker = list(color = Wu::Blues(15)
+                        , line = list(color = Wu::Blues(15), width = 0))
         ) %>%
         layout(
             bargap = 0
-          , xaxis = list(title = unique(h$x_label)
+          , yaxis = list(title = unique(h$x_label)
                        , zeroline = FALSE
                        , showline = FALSE
                        , width = 0
                        , gridwidth = 0
                          )
-          , yaxis = list(title = "Count"
+          , xaxis = list(title = "Count"
                        , zeroline = FALSE
                        , showline = FALSE
                        , width = 0
                        , gridwidth = 0
                          )
         ) %>%
+        add_trace(
+            mode = "markers"
+          , name = " "
+          , type = "scatter"
+          , y = ~ jitter(x, amount = 0.05)
+          , x = 0
+          , marker = list(
+                symbol = "line-ew-open"
+              , color = Wu::Blues(1)
+            )
+          , hovertemplate =  "%{x:.3f}"
+          , showlegend = FALSE
+          , opacity = 0.5
+        ) %>%
         add_segments(
             y = min(x, na.rm = TRUE), yend = max(x, na.rm = TRUE)
-          , x = 0, xend = 0
+          , x = -0.05, xend = -0.05
           , hoverinfo = "text"
           , text = txt
           , name = " "
           , showlegend = FALSE
+          , color = Wu::Blues(1)
+          , line = list(color = Wu::Blues(1), opacity = 0.5)
         )
 }
 
@@ -198,7 +234,8 @@ plt_hist_v <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
 
 #' @export
 plt_ci <- function(data
-                 , x
+                  , x
+                  , u
                  , xlabel = NULL
                  , ylabel = NULL
                  , fit
@@ -215,17 +252,33 @@ plt_ci <- function(data
     fit <- rlang::enquo(fit)
     lower <- rlang::enquo(lower)
     upper <- rlang::enquo(upper)
-    plot_ly(data = data, x = x, y = fit, showlegend = FALSE) %>% 
-        add_lines(showlegend = FALSE) %>%
-        add_markers(showlegend = FALSE, name = " "
-                    ) %>%
+    plot_ly(data = data, x = x, y = fit, showlegend = FALSE, name = " ") %>% 
+        add_lines(showlegend = FALSE
+                , line = list(color = Wu::Blues(1), opacity = 0.5)
+                , name = " "
+                  ) %>%
         add_ribbons(ymin = lower
                   , ymax = upper
                   , opacity = 0.3
-                  , line = list(opacity = 0, width = 0)
+                  , fillcolor = Wu::Blues(15)
+                  , line = list(opacity = 0, width = 0, color = Wu::Blues(15), opacity = 0.3)
                   , name = " "
                   , showlegend = FALSE
                     ) %>%
+        add_trace(
+            mode = "markers"
+          , name = " "
+          , type = "scatter"
+          , x = jitter(u, amount = 0.05)
+          , y = ytick0
+          , marker = list(
+                symbol = "line-ns-open"
+              , color = Wu::Blues(1)
+            )
+          , hovertemplate =  "%{x:.3f}"
+          , showlegend = FALSE
+          , opacity = 0.5
+            ) %>%
         layout(xaxis = list(
                    zeroline = FALSE
                  , showline = FALSE
@@ -252,9 +305,11 @@ plt_ci <- function(data
 }
 
 
+
 #' @export
 plt_ci_g <- function(data
-                 , x
+                  , x
+                  , u
                  , xlabel = NULL
                  , ylabel = NULL
                  , fit
@@ -273,17 +328,35 @@ plt_ci_g <- function(data
     lower <- rlang::enquo(lower)
     upper <- rlang::enquo(upper)
     group <- rlang::enquo(group)
-    plot_ly(data = data, x = x, y = fit, color = group, showlegend = FALSE) %>% 
-        add_lines(showlegend = FALSE, color = group) %>%
-        add_markers(showlegend = FALSE, color = group
-                    ) %>%
+    plot_ly(data = data, x = x, y = fit
+          , showlegend = FALSE, name = " ", color = group) %>%
+        add_lines(showlegend = FALSE
+                , name = group, color = group
+                  ) %>%
         add_ribbons(ymin = lower
                   , ymax = upper
+                  , opacity = 0.5
                   , color = group
-                  , opacity = 0.8
                   , line = list(opacity = 0, width = 0)
+                  , name = group
                   , showlegend = FALSE
-                    )  %>%
+                    ) %>%
+        add_trace(
+            mode = "markers"
+          , name = " "
+          , type = "scatter"
+          , x = jitter(u, amount = 0.05)
+          , text = as.character(round(u, 3))
+          , hoverinfo = "text"
+          , y = ytick0
+          , inherit = FALSE
+          , marker = list(
+                symbol = "line-ns-open"
+              , color = Wu::Blues(1)
+            )
+          , showlegend = FALSE
+          , opacity = 0.5
+        ) %>%
         layout(xaxis = list(
                    zeroline = FALSE
                  , showline = FALSE
@@ -305,5 +378,6 @@ plt_ci_g <- function(data
                  , dtick = ydtick
                )
                ) %>%
+        style(showlegend = FALSE) %>%
         layout(height = 600, width = 1200)
 }
