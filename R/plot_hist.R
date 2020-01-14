@@ -275,7 +275,8 @@ plt_ci <- function(data
                 symbol = "line-ns-open"
               , color = Wu::Blues(1)
             )
-          , hovertemplate =  "%{x:.3f}"
+          , text = as.character(round(u, 3))
+          , hoverinfo = "text"
           , showlegend = FALSE
           , opacity = 0.5
             ) %>%
