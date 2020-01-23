@@ -40,3 +40,34 @@ Blues  <- function(n) {
        ,"#00FFF7"
     )[n]
 }
+
+#' @export
+Greens  <- function(n) {
+    c(
+        "#F7FCF5"
+      , "#E5F5E0"
+      , "#C7E9C0"
+      , "#A1D99B"
+      , "#74C476"
+      , "#41AB5D"
+      , "#238B45"
+      , "#006D2C"
+      , "#00441B"
+    )[n]
+}
+
+
+#' @export
+Oranges  <- function(n) {
+    c(
+        "#FFF5EB"
+      , "#FEE6CE"
+      , "#FDD0A2"
+      , "#FDAE6B"
+      , "#FD8D3C"
+      , "#F16913"
+      , "#D94801"
+      , "#A63603"
+      , "#7F2704"
+    )[n]
+}
