@@ -238,8 +238,8 @@ plt_roc2 <- function(roc1, roc2){
              , text = paste0(
                    "AUC1: ", text_auc1
                  , "\nAUC2: ", text_auc2
-                 , "\n NRI: ", nri_df[1, 4]
-                 , "\n IDI: ", nri_df[4, 4]
+                 , "\n NRI: ", nri_df[1, 5]
+                 , "\n IDI: ", nri_df[4, 5]
                )
              , showarrow = FALSE
            )
