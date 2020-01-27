@@ -71,3 +71,9 @@ Oranges  <- function(n) {
       , "#7F2704"
     )[n]
 }
+
+
+Colors <- function(n){
+    require(RColorBrewer)
+    colorRampPalette(brewer.pal(10, "Spectral"))(n)
+}
