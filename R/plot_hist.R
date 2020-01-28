@@ -413,3 +413,59 @@ plt_box_nc <- function(data, var_n, var_c, var_n_label = NULL, var_c_label = NUL
              , yaxis = list(title = var_n_label)
                )
 }
+
+#' @export
+plt_scatter <- function(data, xvar, yvar, xlabel = NULL, ylabel = NULL){
+    if (is.null(xlabel)){
+        xlabel <- Wu::label(data[[deparse(substitute(xvar))]])
+    }
+    if (is.null(ylabel)){
+        ylabel <- Wu::label(data[[deparse(substitute(yvar))]])
+    }
+    xvar <- data[[deparse(substitute(xvar))]]
+    yvar <- data[[deparse(substitute(yvar))]]
+    txt <- paste0(
+        xlabel, ": ", as.character(xvar)
+      , "\n", ylabel, ": ", as.character(yvar)
+    )
+    cr1 <- cor.test(xvar, yvar, method = c("pearson"))
+    cr2 <- cor.test(xvar, yvar, method = c("spearman"))
+    xvar_jitter <- jitter(xvar, factor = 0.05)
+    yvar_jitter <- jitter(yvar, factor = 0.05)
+    plot_ly(x = ~ xvar_jitter
+          , y = ~ yvar_jitter
+          , marker = list(opacity = 0.5)
+          , hoverinfo = "text"
+          , text = txt
+          , showlegend = FALSE
+            ) %>%
+        layout(xaxis = list(
+                   title = xlabel
+                 , zeroline = FALSE
+                 , showline = FALSE
+                 , width = 0
+                 , gridwidth = 0
+               )
+             , yaxis = list(
+                   title = ylabel
+                 , zeroline = FALSE
+                 , showline = FALSE
+                 , width = 0
+                 , gridwidth = 0
+               )
+               ) %>% layout(
+                         annotations = list(
+                             xref = "paper"
+                           , yref = "paper"
+                           , x = 0.7
+                           , y = 0.9
+                           , text = paste0(
+                                 "Person's Corr: "
+                               , as.character(round(cr1$estimate, 4))
+                               , "\n Spearman's Corr: "
+                               , as.character(round(cr2$estimate, 4))
+                             )
+                           , showarrow = FALSE
+                           , font = list(family = "sans serif")
+                         ))
+}
