@@ -386,3 +386,30 @@ plt_ci_g <- function(data
         style(showlegend = FALSE) %>%
         layout(height = 600, width = 1200)
 }
+
+#' @export
+plt_box_nc <- function(data, var_n, var_c, var_n_label = NULL, var_c_label = NULL){
+    if (is.null(var_n_label)){
+        var_n_label <- Wu::label(data[[deparse(substitute(var_n))]])
+    }
+    if (is.null(var_c_label)){
+        var_c_label <- Wu::label(data[[deparse(substitute(var_c))]])
+    }
+    var_n <- rlang::enquo(var_n)
+    var_c <- rlang::enquo(var_c)
+    plot_ly(data = data
+          , x = var_c
+          , y = var_n
+          , color = var_c
+            ) %>%
+        add_trace(type = "box"
+                , marker = list(opacity = 0.5)
+                , boxpoints = "all"
+                , jitter = 0.8
+                , pointpos = 0
+                , showlegend = FALSE
+                  ) %>%
+        layout(xaxis = list(title = var_c_label)
+             , yaxis = list(title = var_n_label)
+               )
+}
