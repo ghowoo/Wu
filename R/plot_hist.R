@@ -143,7 +143,7 @@ plt_hist <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
             mode = "markers"
           , name = " "
           , type = "scatter"
-          , x = ~ jitter(x, amount = 0.05)
+          , x = ~ jitter(x, factor = 0.05)
           , y = 0
           , marker = list(
                 symbol = "line-ns-open"
@@ -210,7 +210,7 @@ plt_hist_v <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
             mode = "markers"
           , name = " "
           , type = "scatter"
-          , y = ~ jitter(x, amount = 0.05)
+          , y = ~ jitter(x, factor = 0.05)
           , x = 0
           , marker = list(
                 symbol = "line-ew-open"
@@ -273,7 +273,7 @@ plt_ci <- function(data
             mode = "markers"
           , name = " "
           , type = "scatter"
-          , x = jitter(u, amount = 0.05)
+          , x = jitter(u, factor = 0.05)
           , y = ytick0
           , marker = list(
                 symbol = "line-ns-open"
@@ -350,7 +350,7 @@ plt_ci_g <- function(data
             mode = "markers"
           , name = " "
           , type = "scatter"
-          , x = jitter(u, amount = 0.05)
+          , x = jitter(u, factor = 0.05)
           , text = as.character(round(u, 3))
           , hoverinfo = "text"
           , y = ytick0
