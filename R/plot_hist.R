@@ -458,9 +458,9 @@ plt_scatter <- function(data, xvar, yvar, xlabel = NULL, ylabel = NULL){
                              xref = "paper"
                            , yref = "paper"
                            , x = 0.7
-                           , y = 0.9
+                           , y = 0.7
                            , text = paste0(
-                                 "Person's Corr: "
+                                 "Pearson's Corr: "
                                , as.character(round(cr1$estimate, 4))
                                , "\n Spearman's Corr: "
                                , as.character(round(cr2$estimate, 4))

@@ -144,7 +144,7 @@ nri <- function(response, predictor1, predictor2, alpha = 0.05, decimals = 4){
 plt_roc2 <- function(roc1, roc2){
     dr1 <- data.table::data.table(
                            tpr = roc1$sensitivities
-                         , fpr = 1 - roc2$specificities
+                         , fpr = 1 - roc1$specificities
                        )
     dr1 <- dr1[order(fpr, tpr)]
 
@@ -193,6 +193,7 @@ plt_roc2 <- function(roc1, roc2){
       , type = "scatter"
       , mode = "lines"
       , name = "roc1"
+      , inherit = FALSE
       , line = list(
             shape = "hvh"
           , color = Wu::Blues(15)
@@ -205,6 +206,7 @@ plt_roc2 <- function(roc1, roc2){
       , type = "scatter"
       , mode = "lines"
       , name = "roc2"
+      , inherit = FALSE
       , line = list(
             shape = "hvh"
           , color = "#F16913"
