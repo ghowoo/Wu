@@ -149,7 +149,9 @@ plt_hist <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
                 symbol = "line-ns-open"
               , color = Wu::Blues(1)
             )
-          , hovertemplate =  "%{x:.3f}"
+          , hoverinfo = "text"
+          , text = as.character(x)
+          ## , hovertemplate =  "%{x:.3f}"
           , showlegend = FALSE
           , opacity = 0.5
         ) %>%
@@ -214,7 +216,9 @@ plt_hist_v <- function(x, xmin = NULL, xmax = NULL, xint = NULL, xlabel = NULL){
                 symbol = "line-ew-open"
               , color = Wu::Blues(1)
             )
-          , hovertemplate =  "%{x:.3f}"
+          , hoverinfo = "text"
+          , text = as.character(x)
+          ## , hovertemplate =  "%{x:.3f}"
           , showlegend = FALSE
           , opacity = 0.5
         ) %>%
