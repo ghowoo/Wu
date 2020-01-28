@@ -434,7 +434,7 @@ plt_scatter <- function(data, xvar, yvar, xlabel = NULL, ylabel = NULL){
     yvar_jitter <- jitter(yvar, factor = 0.05)
     plot_ly(x = ~ xvar_jitter
           , y = ~ yvar_jitter
-          , marker = list(opacity = 0.5)
+          , marker = list(opacity = 0.9, colors = Wu::Blues(5))
           , hoverinfo = "text"
           , text = txt
           , showlegend = FALSE
