@@ -492,3 +492,23 @@ ann <- function(obj, txt
                , showarrow = FALSE
            ))
 }
+
+#' @export
+hide_axis <- function(obj){
+    layout(obj
+         , xaxis = list(
+               title = "",
+               zeroline = FALSE,
+               showline = FALSE,
+               showticklabels = FALSE,
+               showgrid = FALSE
+           )
+         , yaxis = list(
+               title = "",
+               zeroline = FALSE,
+               showline = FALSE,
+               showticklabels = FALSE,
+               showgrid = FALSE
+           )
+           )
+}
