@@ -63,12 +63,15 @@ plt_roc <- function(obj){
              , tick0 = 0
              , dtick = 0.2)
          , annotations = list(
-               x = 0.4
-             , y = 0.5
-             , xref = "x"
-             , yref = "y"
-             , text = paste0("AUC: ", text_auc)
+               xref = "paper"
+             , yref = "paper"
+             , yanchor = "buttom"
+             , xanchor = "right"
+             , align = "right"
+             , x = 0.95
+             , y = 0.3
              , showarrow = FALSE
+             , text = paste0("AUC: ", text_auc)
            )
            ) %>%
         style(showlegend = FALSE)
@@ -233,10 +236,13 @@ plt_roc2 <- function(roc1, roc2){
              , tick0 = 0
              , dtick = 0.2)
          , annotations = list(
-               x = 0.6
-             , y = 0.4
-             , xref = "x"
-             , yref = "y"
+               xref = "paper"
+             , yref = "paper"
+             , yanchor = "buttom"
+             , xanchor = "right"
+             , align = "right"
+             , x = 0.95
+             , y = 0.3
              , text = paste0(
                    "AUC1: ", text_auc1
                  , "\nAUC2: ", text_auc2

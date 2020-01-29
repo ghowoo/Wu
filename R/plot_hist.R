@@ -434,6 +434,8 @@ plt_scatter <- function(data, xvar, yvar, xlabel = NULL, ylabel = NULL){
     yvar_jitter <- jitter(yvar, factor = 0.05)
     plot_ly(x = ~ xvar_jitter
           , y = ~ yvar_jitter
+          , type = "scatter"
+          , mode = "markers"
           , marker = list(opacity = 0.9, colors = Wu::Blues(5))
           , hoverinfo = "text"
           , text = txt
@@ -457,8 +459,11 @@ plt_scatter <- function(data, xvar, yvar, xlabel = NULL, ylabel = NULL){
                          annotations = list(
                              xref = "paper"
                            , yref = "paper"
-                           , x = 0.7
-                           , y = 0.7
+                           , x = 0.95
+                           , y = 0.8
+                           , xanchor = "right"
+                           , align = "right"
+                           , yanchor = "top"
                            , text = paste0(
                                  "Pearson's Corr: "
                                , as.character(round(cr1$estimate, 4))
@@ -468,4 +473,22 @@ plt_scatter <- function(data, xvar, yvar, xlabel = NULL, ylabel = NULL){
                            , showarrow = FALSE
                            , font = list(family = "sans serif")
                          ))
+}
+
+#' @export
+ann <- function(obj, txt
+              , x = 0.5, y = 0.9
+              , yanchor = "bottom", xanchor = "center"
+              , align = "center"){
+    layout(obj, annotations = list(
+               text = txt
+               , xref = "paper"
+               , yref = "paper"
+               , yanchor = yanchor
+               , xanchor = xanchor
+               , align = align
+               , x = x
+               , y = y
+               , showarrow = FALSE
+           ))
 }
