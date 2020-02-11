@@ -6,7 +6,7 @@
 \usage{
 pvalue_description(...,
   label = c("The default test for categorical variables is chi-squared test with Yates correction for continuity.",
-  "The default test for continuous variables is one-way ANOVA on means assuming equal variance. Kruskal-Wallis rank sum test has been applied for the variables where median and interquartile range (IQR) are show on the table."),
+  "The default test for continuous variables is one-way ANOVA on means assuming equal variance. Kruskal-Wallis rank sum test has been applied for the variables where median and interquartile range (IQR) are shown on the table."),
   notation = "symbol")
 }
 \description{
