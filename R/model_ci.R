@@ -148,7 +148,7 @@ model_ci.glm <- function(obj, method = "Wald", digits = 2, str_ref = "ref", ...)
 
 
 #' @export
-model_ci.lme <- function(obj, digits = 2, str_ref = "ref", ...){
+model_ci.lme <- function(obj, digits = 2, pdigits = 4, str_ref = "ref", ...){
     require(nlme)
     require(data.table)
     fit <- coef(summary(obj))
@@ -168,6 +168,39 @@ model_ci.lme <- function(obj, digits = 2, str_ref = "ref", ...){
       , all.x = TRUE
       , all.y = FALSE
     )
-    rtn <- rtn[order(var_order)]
+    rtn <- rtn[order(var_order, coef_order)
+               ][is.na(Value), ci_str := str_ref
+        ][, list(
+           var_label_o
+         , var_level
+         , ci_str
+         , `p-value`
+         , coef_name
+         , var_name
+         , var_order
+         , var_label
+         , coef_order
+         , rn
+         , Value
+         , lower
+         , upper
+       )]
+    colnames(rtn) <- c(
+        "Variable"
+      , "Level"
+      , "Estimate (95% CI)"
+      , "p-value"
+      , "coef_name"
+      , "var_name"
+      , "var_order"
+      , "var_label"
+      , "coef_order"
+      , "rn"
+      , "fit"
+      , "lower"
+      , "upper"
+    )
+    rtn <- rtn[, `p-value` := Wu::fmtp(`p-value`, pdigits)
+               ][is.na(`p-value`), `p-value` := ""]
     return(rtn)
 }
