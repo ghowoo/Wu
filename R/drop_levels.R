@@ -22,6 +22,7 @@ drop_levels.data.frame <- function(data, except = NULL, exclude, ...){
              data[[x]] <- Wu::drop_levels(data[[x]])
          }
          )
+    return(data)
 }
 
 #' @export
