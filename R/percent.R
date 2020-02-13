@@ -20,8 +20,6 @@ fmtn <- function(x, decimals = 2){
 #' @export
 fmtp <- function(x, sig = 4) {
     sig_value <- 1 / (10 ^ sig)
-    if (x < sig_value)
-        return(paste0("< ", Wu::fmtn(sig_value, sig)))
-    else
-        return(fmtn(x, sig))
+    y <- ifelse(x < sig_value, paste0("< ", Wu::fmtn(sig_value, sig)), Wu::fmtn(x, sig))
+    return(y)
 }
