@@ -30,10 +30,12 @@ fmtp <- function(pvals, sig.limit = .0001, digits = 4, html = FALSE) {
     sapply(pvals, function(x, sig.limit) {
         if (x < sig.limit)
             if (html)
-                return(sprintf('&lt; %s', format(sig.limit))) else
-                                                                  return(sprintf('< %s', format(sig.limit)))
+                return(sprintf('&lt; %s', format(sig.limit)))
+            else
+                return(sprintf('< %s', format(sig.limit)))
         if (x > .1)
-            return(roundr(x, digits = 2)) else
-                                              return(roundr(x, digits = digits))
+            return(roundr(x, digits = digits))
+        else
+            return(roundr(x, digits = digits))
     }, sig.limit = sig.limit)
 }
