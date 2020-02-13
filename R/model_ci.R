@@ -145,3 +145,29 @@ model_ci.glm <- function(obj, method = "Wald", digits = 2, str_ref = "ref", ...)
     )
     return(rtn)
 }
+
+
+#' @export
+model_ci.lme <- function(obj, digits = 2, str_ref = "ref", ...){
+    require(nlme)
+    require(data.table)
+    fit <- coef(summary(obj))
+    coef_names <- rownames(fit)
+    rtn <- data.table::as.data.table(fit)
+    rtn$coef_name <- coef_names
+    rtn <- rtn[
+      , lower := Value - qt(.975, DF) * Std.Error
+    ][, upper := Value + qt(.975, DF) * Std.Error
+      ][, ci_str := ci_to_str(Value, lower, upper, digits)]
+    lvls <- Wu::get_levels(data = Wu::model_data(obj), vars = Wu::model_vars(obj))
+    rtn <- merge(
+        x = lvls
+      , y = rtn
+      , by.x = "coef_name"
+      , by.y = "coef_name"
+      , all.x = TRUE
+      , all.y = FALSE
+    )
+    rtn <- rtn[order(var_order)]
+    return(rtn)
+}
