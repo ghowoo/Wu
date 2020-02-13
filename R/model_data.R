@@ -18,3 +18,14 @@ model_data.lmerMod <- function(obj){
 model_data.glm <- function(obj){
     obj$data
 }
+
+#' @export
+model_data.lme <- function(obj){
+    obj$data
+}
+
+
+#' @export
+model_data.default <- function(obj){
+    obj$data
+}

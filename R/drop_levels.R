@@ -12,14 +12,16 @@ drop_levels <- function(df){
 }
 
 #' @export
-drop_levels.data.frame <- function(x, except = NULL, exclude, ...){
-    ix <- vapply(x, is.factor, NA)
-    if (!is.null(except))
-        ix[except] <- FALSE
-    x[ix] <- if (missing(exclude))
-        lapply(x[ix], drop_levels)
-    else lapply(x[ix], drop_levels, exclude = exclude)
-    x
+drop_levels.data.frame <- function(data, except = NULL, exclude, ...){
+    fac_id <- vapply(data, is.factor, NA)
+    if (!is.null(except)) 
+        fac_id[except] <- FALSE
+    vars <- colnames(data)[fac_id]
+    lapply(vars
+         , function(x){
+             data[[x]] <- Wu::drop_levels(data[[x]])
+         }
+         )
 }
 
 #' @export

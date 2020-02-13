@@ -25,6 +25,9 @@ Depends:
 	, nnet
 	, scales
 	, png
+	, mgcv
+	, lme4
+	, flexdashboard
 Imports:
     data.table
     , DT
@@ -42,3 +45,6 @@ Imports:
     , scales
     , png
     , plotly
+    , mgcv
+    , lme4
+    , flexdashboard
