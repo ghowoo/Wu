@@ -6,7 +6,7 @@
 
 
 tab_freq <- function(outcome,group,data,digits=2,digits.pct=1,label=NA){
-  if(is.na(label)){label <- labelled::var_label(data[,group])}
+  if(is.na(label)){label <- Wu::label(data[[group]])}
   if(length(label) == 0){label <- group}
   t <- table(data[[group]],data[[outcome]])
   t <- as.data.frame.matrix(t)
