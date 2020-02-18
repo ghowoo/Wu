@@ -42,6 +42,9 @@ tab_freq <- function(outcome,group,data,digits=2,digits.pct=1,label=NA){
   colnames(t.odds.str) <- paste("odds.str.",colnames(t),sep="")
   colnames(t) <- paste("n.",colnames(t),sep="")
   level <- rownames(t)
+  if (is.factor(data[[group]])){
+      level <- factor(level, levels = levels(data[[group]]))
+  }
   rownames(t) <- NULL
   predictor <- group
   coef.name <- paste(group,level,sep="")
