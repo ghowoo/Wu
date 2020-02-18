@@ -65,5 +65,6 @@ plt_hist_prop <- function(data, x = yearmonth_appt, yes_var = flag_abx, yes_valu
              , showticklabels = TRUE
              , tickformat = ".1%"
              , title = ""
+             , automargin = TRUE
            ))
 }
