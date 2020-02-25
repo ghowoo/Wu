@@ -6,9 +6,10 @@
 #' @export
 get_varimp.glm <- function(mod){
     require(data.table)
-    av <- anova(mod)
+    av <- car::Anova(mod)
     dv <- as.data.table(av)
     dv$var_name <- rownames(av)
+    colnames(dv) <- c("Deviance", "df", "pvalue", "var_name")
     dv <- dv[var_name %notin% c(NA, NULL, "NULL")
              ][, var_imp := Deviance / sum(Deviance)][order(var_imp)]
     dv$var_name <- factor(dv$var_name, levels = dv$var_name)
