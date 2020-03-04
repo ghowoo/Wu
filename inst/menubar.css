@@ -1,0 +1,20 @@
+.author{
+    display: none;
+}
+.title{
+    display: none;
+}
+.date{
+    display: none;
+}
+.main-container {
+  max-width: 2400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media print {
+    .tab-pane {
+        display: block !important;
+        opacity: 1;
+    }
+}

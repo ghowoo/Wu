@@ -5,8 +5,6 @@
 #' @keywords css html
 #' @export
 
-
-
 css <- function(){
     library(Wu)
     txt <- readLines(file.path(path.package("Wu"), "blues.css"))
@@ -14,3 +12,33 @@ css <- function(){
     cat(txt)
 }
 
+
+#' @export
+
+css_menu <- function(){
+    library(Wu)
+    txt <- readLines(file.path(path.package("Wu"), "menubar.css"))
+    txt <- paste0(c("<style>", txt, "</style>"), collapse = "  \n")
+    cat(txt)
+}
+
+#' @export
+options_menu <- function(){
+    knitr::opts_chunk$set(
+                          echo = TRUE
+                        , message = TRUE
+                        , tidy = TRUE
+                        , results = "markup"
+                        , warning = TRUE
+                        , code_folding = "hide"
+                        , fig.width = 12
+                        , fig.height = 8
+                      )
+
+    options(knitr.kable.NA = "")
+
+    theme_update(
+        axis.text = element_text(size = 10)
+      , axis.title = element_text(size = 10)
+    )
+}
