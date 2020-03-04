@@ -7,10 +7,21 @@
 
 
 GetLabels <- function(obj){
-  rtn <- unlist(lapply(obj, label()))
+  rtn <- unlist(lapply(obj, label))
   rtn  <- cbind(colnames(obj),rtn)
   rownames(rtn) <- NULL
   rtn <- as.data.frame(rtn)
   colnames(rtn) <- c("variable","label")
+  return(rtn)
+}
+
+
+#' @export
+ger_labels <- function(obj){
+  rtn <- unlist(lapply(obj, Wu::label))
+  rtn  <- cbind(colnames(obj), rtn)
+  rownames(rtn) <- NULL
+  rtn <- as.data.frame(rtn)
+  colnames(rtn) <- c("variable", "label")
   return(rtn)
 }

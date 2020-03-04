@@ -30,12 +30,3 @@ label.default <- function(obj) {
     attr(obj, "label") <- value
     obj
 }
-
-
-## label <- function(obj){
-##     rtn <- attr(obj, which="label")
-##   if(is.null(rtn)) {
-##     rtn <- ""
-##   }
-##   return(rtn)
-## }
