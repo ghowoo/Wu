@@ -25,18 +25,16 @@ css_menu <- function(){
 #' @export
 options_menu <- function(){
     knitr::opts_chunk$set(
-                          echo = TRUE
-                        , message = TRUE
+                          echo = FALSE
+                        , message = FALSE
                         , tidy = TRUE
-                        , results = "markup"
-                        , warning = TRUE
+                        , results = "asis"
+                        , warning = FALSE
                         , code_folding = "hide"
                         , fig.width = 12
                         , fig.height = 8
                       )
-
     options(knitr.kable.NA = "")
-
     theme_update(
         axis.text = element_text(size = 10)
       , axis.title = element_text(size = 10)
