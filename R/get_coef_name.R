@@ -31,7 +31,9 @@ get_coef_name <- function(obj){
     ][,order.withinlevel := 1:.N,by=list(var)
       ][,label := ifelse(is.na(label) | trimws(label) == "", var,label)
         ][,label := ifelse(order.withinlevel > 1, "",label)
-          ][,coef.name := paste0(var,level)]
+          ][,coef.name := dplyr::case_when(
+                 is.na(level) ~ var
+               , TRUE ~ paste0(var, level))]
   rownames(rtn) <- NULL
   return(rtn)
 }
