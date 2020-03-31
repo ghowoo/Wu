@@ -131,9 +131,10 @@ Table1n <- function(obj, Vars, FactorVars, Strata, ...){
             rtn <- table1_single(obj, Vars[i], Strata, FactorVars, ...)
         } else {
             rtn <- rbind(rtn
-                       , table1_single(obj, Vars[i], Strata, FactorVars, ...)
+                       , table1_single(obj, Vars[i], Strata, FactorVars, ...)[-1, ]
                          )
         }
     }
+    rownames(rtn) <- NULL
     return(rtn)
 }
