@@ -83,35 +83,42 @@ Table1n <- function(obj, Vars, FactorVars, Strata, ...){
         )
     }
 
+    reformat_numeric <- function(t){
+        rtn <- t
+        rtn[2, 1] <- gsub("^(.+)( )(\\(me)(.+)(\\))$", "\\1", t[2, 1], perl = TRUE)
+        rtn[2, 2] <- gsub("^(.+)( )(\\(me)(.+)(\\))$", "\\3\\4\\5", t[2, 1], perl = TRUE)
+        return(rtn)
+    }
 
+    
     table1_numeric1 <- function(obj, var, Strata, Test = FALSE, ...){
-        Table1(
+        reformat_numeric(Table1(
             data = obj
           , Vars = var
           , Strata = Strata
           , Test = Test
-        )
+        ))
     }
 
     table1_numeric2 <- function(obj, var, Strata, Test = FALSE, ...){
-        Table1(
+        reformat_numeric(Table1(
             data = obj
           , Vars = var
           , NonNormals = var
           , Strata = Strata
           , Test = Test
-        )
+        ))
     }
 
     table1_numeric3 <- function(obj, var, Strata, Test = FALSE, ...){
-        Table1(
+        reformat_numeric(Table1(
             data = obj
           , Vars = var
           , NonNormals = var
           , minMax = TRUE
           , Strata = Strata
           , Test = Test
-        )
+        ))
     }
 
     table1_single <- function(obj, var, Strata, FactorVars, ...){
