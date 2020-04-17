@@ -71,6 +71,8 @@ Table1 <- function(
 
 #' @export
 
+
+
 Table1n <- function(obj, Vars, FactorVars, Strata, ...){
 
     table1_factor <- function(obj, var, Strata, Test = FALSE, ...){
@@ -87,12 +89,14 @@ Table1n <- function(obj, Vars, FactorVars, Strata, ...){
         rtn <- t
         rtn[2, 1] <- gsub("^(.+)( )(\\(me)(.+)(\\))$", "\\1", t[2, 1], perl = TRUE)
         rtn[2, 2] <- gsub("^(.+)( )(\\(me)(.+)(\\))$", "\\3\\4\\5", t[2, 1], perl = TRUE)
+        rtn[2, 2] <- gsub("^\\((.+)\\)$", "\\1", rtn[2, 2], perl = TRUE)
         return(rtn)
     }
     reformat_numeric2 <- function(t){
         rtn <- t
         rtn[2, 1] <- ""
         rtn[2, 2] <- gsub("^(.+)( )(\\(me)(.+)(\\))$", "\\3\\4\\5", t[2, 1], perl = TRUE)
+        rtn[2, 2] <- gsub("^\\((.+)\\)$", "\\1", rtn[2, 2], perl = TRUE)
         return(rtn)
     }
 
