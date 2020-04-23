@@ -44,11 +44,11 @@ tbl_consort <- function(obj, txt){
     mx <- rbind(mx, mx[nrow(mx) + 1, ])
     for(i in 1:nrow(mx)){
         if(i == 1){
-            codes <- mx[i, 2]
+            codes <- mx["code"][i]
             mx[["total"]][i] <- nrow(obj)
             mx[["excluded"]][i] <- get_rownum(obj, codes)
         } else if (i < nrow(mx)) {
-            codes <- paste0(wrap_p(codes), " & ", wrap_p(mx[i, 2]))
+            codes <- paste0("!", wrap_p(codes), " & ", wrap_p(mx[["code"]][i]))
             mx[["excluded"]][i] <- get_rownum(obj, codes)
             mx[["total"]][i] <- mx[["total"]][i - 1] - mx[["excluded"]][i - 1]
         } else {
