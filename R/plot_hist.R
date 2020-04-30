@@ -415,7 +415,7 @@ plt_box_nc <- function(data, var_n, var_c, var_n_label = NULL, var_c_label = NUL
 }
 
 #' @export
-plt_scatter <- function(data, xvar, yvar, xlabel = NULL, ylabel = NULL){
+plt_scatter <- function(data, xvar, yvar, xlabel = NULL, ylabel = NULL, marker_size = 10,jit = 1){
     if (is.null(xlabel)){
         xlabel <- Wu::label(data[[deparse(substitute(xvar))]])
     }
@@ -430,13 +430,15 @@ plt_scatter <- function(data, xvar, yvar, xlabel = NULL, ylabel = NULL){
     )
     cr1 <- cor.test(xvar, yvar, method = c("pearson"))
     cr2 <- cor.test(xvar, yvar, method = c("spearman"))
-    xvar_jitter <- jitter(xvar, factor = 0.05)
-    yvar_jitter <- jitter(yvar, factor = 0.05)
+    xvar_jitter <- jitter(xvar, factor = jit)
+    yvar_jitter <- jitter(yvar, factor = jit)
     plot_ly(x = ~ xvar_jitter
           , y = ~ yvar_jitter
           , type = "scatter"
           , mode = "markers"
-          , marker = list(opacity = 0.9, colors = Wu::Blues(5))
+          , marker = list(opacity = 0.7
+                        , colors = Wu::Blues(5)
+                        , size = marker_size)
           , hoverinfo = "text"
           , text = txt
           , showlegend = FALSE
