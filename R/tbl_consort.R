@@ -44,7 +44,7 @@ tbl_consort <- function(obj, txt){
     mx <- rbind(mx, mx[nrow(mx) + 1, ])
     for(i in 1:nrow(mx)){
         if(i == 1){
-            codes <- mx["code"][i]
+            codes <- mx[["code"]][i]
             mx[["total"]][i] <- nrow(obj)
             mx[["excluded"]][i] <- get_rownum(obj, codes)
         } else if (i < nrow(mx)) {
