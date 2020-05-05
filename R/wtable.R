@@ -62,7 +62,8 @@ wtable2 <- function(data, rowvar, colvar, weightvar = 1
     t <- rbind(margin.table(t, 2), t)
     t <- cbind(rowlabel, c("Col Sum", rowlvl), t)
     colnames(t)[1:2] <- c("Variable", "Level")
+    t <- as.data.table(t)
     t$order_level <- 0:length(rowlvl)
-    return(as.data.table(t))
+    return(t)
 }
 
