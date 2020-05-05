@@ -34,10 +34,10 @@ wtable <- function(data, rowvar, colvar, weightvar = 1
 wtable2 <- function(data, rowvar, colvar, weightvar = 1
                    , rowlabel = NULL, collabel = NULL){
     if (is.null(rowlabel)) {
-        varlabel <- Wu::label(data[[deparse(substitute(rowvar))]])
+        rowlabel <- Wu::label(data[[deparse(substitute(rowvar))]])
     }
     if (is.null(collabel)) {
-        bylabel <- Wu::label(data[[deparse(substitute(colvar))]])
+        collabel <- Wu::label(data[[deparse(substitute(colvar))]])
     }
     rowvar <- data[[deparse(substitute(rowvar))]]
     colvar <- data[[deparse(substitute(colvar))]]
