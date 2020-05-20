@@ -89,8 +89,8 @@ desc_cat <- function(x, digits_p=1, digits_c=3){
     , paste0("Non-Missing: ", as.character(n_nonmissing), " (", Wu::percent(n_nonmissing/n, digits_p), ")")
     , paste0("Missing: ", as.character(n_missing), " (", Wu::percent(n_missing/n, digits_p), ")")
     , paste0("Unique: ", as.character(n_unique), " (", Wu::percent(n_unique/n, digits_p), ")")
-    , paste0("Min: ", min(x, na.rm = TRUE))
-    , paste0("Max: ", max(x, na.rm = TRUE))
+    , paste0("Min: ", min(as.character(x), na.rm = TRUE))
+    , paste0("Max: ", max(as.character(x), na.rm = TRUE))
     , cats
       )
 }
