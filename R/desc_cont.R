@@ -74,9 +74,9 @@ desc_cat <- function(x, digits_p=1, digits_c=3){
     n_missing <- sum(is.na(x))
     n_nonmissing <- n - n_missing
     n_unique <- length(unique(x))
-    t <- table(x)
+    t <- table(x, useNA="ifany")
     t <- t[order(-t)][1:min(7, length(t))]
-    attr(t, "dimnames")[[1]] <- substring(attr(t, "dimnames")[[1]], first=1, last=20)
+    if(!is.null(attr(t, "dimnames")[[1]])){attr(t, "dimnames")[[1]] <- substring(attr(t, "dimnames")[[1]], first=1, last=20)}
     cats <- unlist(lapply(1:length(t), function(x){
         paste0(dimnames(t)[[1]][x]
              , ": "
@@ -93,4 +93,12 @@ desc_cat <- function(x, digits_p=1, digits_c=3){
     , paste0("Max: ", max(as.character(x), na.rm = TRUE))
     , cats
       )
+}
+
+
+#' @export
+desc_var <- function(x){
+    ifelse(class(x) %in% c("integer", "numeric")
+         , return(Wu::desc_cont(x))
+         , return(Wu::desc_cat(x)))
 }
