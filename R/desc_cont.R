@@ -98,7 +98,7 @@ desc_cat <- function(x, digits_p=1, digits_c=3){
 
 #' @export
 desc_var <- function(x){
-    ifelse(class(x) %in% c("integer", "numeric")
+    ifelse(class(x) %in% c("integer", "numeric") & length(unique(x)) > 7
          , return(Wu::desc_cont(x))
          , return(Wu::desc_cat(x)))
 }
