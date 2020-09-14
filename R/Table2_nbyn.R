@@ -4,7 +4,7 @@
 #' @param
 #' @keywords correlation, Peason's Cor, Spearman's rho
 #' @export
-table2_nbyn <- function(data, var, nvars, digits_p=1, digits_c=3){
+Table2_nbyn <- function(data, var, nvars, digits_p=1, digits_c=3){
     fx4 <- function(x, y, digits=3){
         t <- cor.test(x, y, method="pearson")
         c(paste0(format(t$estimate, digits=digits)

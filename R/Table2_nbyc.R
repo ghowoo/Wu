@@ -4,7 +4,7 @@
 #' @param
 #' @keywords mean, ANOVA, Kruskal Wallis
 #' @export
-table2_nbyc <- function(data, var, groups, digits_p=1, digits_c=3){
+Table2_nbyc <- function(data, var, groups, digits_p=1, digits_c=3){
     fx1 <- function(x, digits=3){
         if(min(is.na(x)) == 1){
             return(NA)
