@@ -1,5 +1,5 @@
 #' This function allows you to get a tabulation of two categorical variables.
-#' @param 
+#' @param
 #' @keywords tabulate
 #' @export
 
@@ -13,11 +13,11 @@ tab_freq <- function(outcome,group,data,digits=2,digits.pct=1,label=NA){
   n <- rowSums(t)
   N <- sum(n)
   n.str <- paste(format(n,big.mark=","),"/",format(N,big.mark=","),sep="")
-  t.rate <- as.matrix(t/n)
+  t.rate <- as.matrix(as.matrix(t)/n)
   t.rate.str <- matrix(
     paste(Wu::percent(t.rate,digits=digits.pct)
           , "("
-          , format(t,big.mark=",")
+          , format(as.matrix(t),big.mark=",")
           , "/"
           , format(n,big.mark=",")
           , ")"
@@ -28,14 +28,14 @@ tab_freq <- function(outcome,group,data,digits=2,digits.pct=1,label=NA){
   t.odds.str <- matrix(
     paste(format(t.odds,digits=digits,scientific = FALSE)
           , "("
-          , format(t,big.mark=",")
+          , format(as.matrix(t),big.mark=",")
           , "/"
-          , format(n-t,big.mark=",")
+          , format(as.matrix(n-t),big.mark=",")
           , ")"
           ,sep=""
           ,collapse = NULL)
     ,nrow=nrow(t))
-  
+
   colnames(t.rate) <- paste("rate.",colnames(t),sep="")
   colnames(t.rate.str) <- paste("rate.str.",colnames(t),sep="")
   colnames(t.odds) <- paste("odds.",colnames(t),sep="")
@@ -61,9 +61,9 @@ tab_freq <- function(outcome,group,data,digits=2,digits.pct=1,label=NA){
      ,t.rate.str
      ,t.odds
      ,t.odds.str
-    , stringsAsFactors = FALSE      
+    , stringsAsFactors = FALSE
   )
-  
+
   rownames(t2) <- NULL
   t2 <- as.data.table(t2)[
     ,rn:=1:.N,by=list(predictor)
@@ -96,4 +96,3 @@ tab_freq2 <- function(outcome,group,data,digits=2,digits.pct=1,label=NA, yes = "
     t$pct_no <- t$n_no / t$n_group
     return(t)
 }
-
