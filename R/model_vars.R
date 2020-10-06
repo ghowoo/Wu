@@ -10,6 +10,13 @@ model_vars <- function(x, ...){
     UseMethod("model_vars")
 }
 
+
+#' @export
+model_vars.default <- function(obj){
+    names(attr(obj$terms, "dataClasses"))
+}
+
+
 #' @export
 model_vars.lmerMod <- function(obj){
     terms <- attr(obj@frame, "terms")
@@ -20,6 +27,12 @@ model_vars.lmerMod <- function(obj){
 model_vars.glm <- function(obj){
     names(attr(obj$terms, "dataClasses"))
 }
+
+#' @export
+model_vars.lm <- function(obj){
+    names(attr(obj$terms, "dataClasses"))
+}
+
 
 #' @export
 model_vars.lme <- function(obj){

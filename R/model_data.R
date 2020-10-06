@@ -24,6 +24,11 @@ model_data.lme <- function(obj){
     obj$data
 }
 
+#' @export
+model_data.lm <- function(obj){
+    obj$model
+}
+
 
 #' @export
 model_data.default <- function(obj){
