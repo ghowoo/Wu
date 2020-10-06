@@ -210,7 +210,7 @@ model_ci.lm <- function(obj, method = "Wald", digits = 2, str_ref = "ref", ...){
     fit <- coef(obj)
     fit <- data.table::data.table(
                            coef_name = names(fit)
-                         , fit = exp(fit)
+                         , fit = fit
                        )
     ci <- stats::confint.default(obj, methods = "Wald")
     ci <- data.table::data.table(
