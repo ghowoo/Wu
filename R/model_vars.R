@@ -24,6 +24,12 @@ model_vars.lmerMod <- function(obj){
 }
 
 #' @export
+model_vars.glmerMod <- function(obj){
+    terms <- attr(obj@frame, "terms")
+    names(attr(terms, "dataClasses"))
+}
+
+#' @export
 model_vars.glm <- function(obj){
     names(attr(obj$terms, "dataClasses"))
 }
