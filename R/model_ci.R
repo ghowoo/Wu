@@ -107,9 +107,12 @@ model_ci.glmerMod <- function(obj, method = "Wald", digits = 2, str_ref = "ref",
       , y = rtn
       , by.x = "coef_name"
       , by.y = "coef_name"
-      , all.x = FALSE
+      , all.x = TRUE
       , all.y = FALSE
     )
+    rtn <- rtn[, fit_is_null := as.numeric(is.na(fit))
+               ][, min_fit := min(fit_is_null), by = list(var_name)
+                 ][min_fit == 1]
     rtn <- rtn[
         order(var_order, coef_order)
     ][, fit := transform(fit)
