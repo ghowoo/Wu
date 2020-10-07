@@ -107,7 +107,7 @@ model_ci.glmerMod <- function(obj, method = "Wald", digits = 2, str_ref = "ref",
       , y = rtn
       , by.x = "coef_name"
       , by.y = "coef_name"
-      , all.x = TRUE
+      , all.x = FALSE
       , all.y = FALSE
     )
     rtn <- rtn[
