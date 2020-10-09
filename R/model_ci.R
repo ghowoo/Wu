@@ -345,3 +345,63 @@ model_ci.lm <- function(obj, method = "Wald", digits = 2, str_ref = "ref", ...){
     )
     return(rtn)
 }
+
+#' @export
+model_ci.coxph <- function(obj
+                         , data
+                         , method = "Wald"
+                         , digits = 2
+                         , str_ref = "ref"
+                         , ...){
+    fit <- coef(obj)
+    fit <- data.table::data.table(
+                           coef_name = names(fit)
+                         , fit = exp(fit)
+                       )
+    ci <- exp(stats::confint.default(obj, methods = "Wald"))
+    ci <- data.table::data.table(
+                          coef_name = rownames(ci)
+                        , lower = ci[, 1]
+                        , upper = ci[, 2]
+                      )
+    rtn <- merge(
+        x = fit
+      , y = ci
+      , by.x = "coef_name"
+      , by.y = "coef_name"
+      , all = FALSE
+    )
+    lvls <- Wu::get_levels(data=data, vars=model_vars(obj)[-1])
+    lvls <- lvls[, coef_order := 1:.N]
+    colnames(lvls)[1] <- "variable"
+    lvls <- lvls[, rn := 1:.N, by = list(variable)
+                 ][rn > 1, var_label := ""
+                   ][, rn := NULL]
+    rtn <- merge(
+        x = lvls
+      , y = rtn
+      , by.x = "coef_name"
+      , by.y = "coef_name"
+      , all.x = TRUE
+      , all.y = FALSE
+    )
+    rtn <- rtn[
+        order(coef_order)
+    ][, ci_str := ci_to_str(fit, lower, upper, digits)
+      ][is.na(fit), ci_str := str_ref
+        ]
+    rtn <- rtn[, list(var_label, var_level, ci_str
+                    , fit, lower, upper, variable, coef_name
+                      )]
+    colnames(rtn) <- c(
+        "Variable"
+      , "Level"
+      , "Estimate (95% CI)"
+      , "fit"
+      , "lower"
+      , "upper"
+      , "variable_name"
+      , "coef_name"
+    )
+    return(rtn)
+}

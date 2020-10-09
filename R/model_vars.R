@@ -44,3 +44,8 @@ model_vars.lm <- function(obj){
 model_vars.lme <- function(obj){
     attr(obj$terms, "term.labels")
 }
+
+#' @export
+model_vars.coxph <- function(obj){
+    all.vars(obj$formula)
+}
