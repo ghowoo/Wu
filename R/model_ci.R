@@ -372,11 +372,6 @@ model_ci.coxph <- function(obj
       , all = FALSE
     )
     lvls <- Wu::get_levels(data=data, vars=model_vars(obj)[-1])
-    lvls <- lvls[, coef_order := 1:.N]
-    colnames(lvls)[1] <- "variable"
-    lvls <- lvls[, rn := 1:.N, by = list(variable)
-                 ][rn > 1, var_label := ""
-                   ][, rn := NULL]
     rtn <- merge(
         x = lvls
       , y = rtn
@@ -390,18 +385,33 @@ model_ci.coxph <- function(obj
     ][, ci_str := ci_to_str(fit, lower, upper, digits)
       ][is.na(fit), ci_str := str_ref
         ]
-    rtn <- rtn[, list(var_label, var_level, ci_str
-                    , fit, lower, upper, variable, coef_name
-                      )]
+    rtn <- rtn[, list(
+        var_label_o
+      , var_level
+      , ci_str
+      , coef_name
+      , var_name
+      , var_order
+      , var_label
+      , coef_order
+      , rn
+      , fit
+      , lower
+      , upper
+    )]
     colnames(rtn) <- c(
         "Variable"
       , "Level"
       , "Estimate (95% CI)"
+      , "coef_name"
+      , "var_name"
+      , "var_order"
+      , "var_label"
+      , "coef_order"
+      , "rn"
       , "fit"
       , "lower"
       , "upper"
-      , "variable_name"
-      , "coef_name"
     )
     return(rtn)
 }
