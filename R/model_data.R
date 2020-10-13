@@ -39,3 +39,8 @@ model_data.lm <- function(obj){
 model_data.default <- function(obj){
     obj$data
 }
+
+#' @export
+model_data.clmm <- function(obj){
+    obj$model
+}

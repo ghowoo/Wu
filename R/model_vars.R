@@ -49,3 +49,8 @@ model_vars.lme <- function(obj){
 model_vars.coxph <- function(obj){
     all.vars(obj$formula)
 }
+
+#' @export
+model_vars.clmm <- function(obj){
+    all.vars(obj$formula)
+}
