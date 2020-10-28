@@ -4,8 +4,16 @@
 \alias{flowchart}
 \title{A flowchart Function}
 \usage{
-flowchart(data, vars, top = "Total", font_size = 30, icon_size = 80,
-  edge_width = 10, plot_height = "800px", plot_width = "100\%")
+flowchart(
+  data,
+  vars,
+  top = "Total",
+  font_size = 15,
+  icon_size = 40,
+  edge_width = 2,
+  plot_height = "800px",
+  plot_width = "100\%"
+)
 }
 \description{
 This function allows you to create a flowchart

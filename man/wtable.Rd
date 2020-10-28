@@ -4,8 +4,7 @@
 \alias{wtable}
 \title{A weighted table() function}
 \usage{
-wtable(data, rowvar, colvar, weightvar = 1, rowlabel = NULL,
-  collabel = NULL)
+wtable(data, rowvar, colvar, weightvar = 1, rowlabel = NULL, collabel = NULL)
 }
 \description{
 Tabulate two factors with weight.

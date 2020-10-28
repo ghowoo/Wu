@@ -4,8 +4,7 @@
 \alias{tab_freq}
 \title{This function allows you to get a tabulation of two categorical variables.}
 \usage{
-tab_freq(outcome, group, data, digits = 2, digits.pct = 1,
-  label = NA)
+tab_freq(outcome, group, data, digits = 2, digits.pct = 1, label = NA)
 }
 \description{
 This function allows you to get a tabulation of two categorical variables.
