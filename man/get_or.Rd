@@ -2,14 +2,16 @@
 % Please edit documentation in R/get_ors.R
 \name{get_or}
 \alias{get_or}
-\title{A function to get odds ratios on a binary outcome}
+\title{A function to get odds ratios on a binary outcome or difference on the numeric outcome}
 \usage{
 get_or(y, x, data, digits = 2)
 }
 \description{
 This function allows you to get related measurements on a binary outcome
 }
-\keyword{analysis}
+\keyword{analysis,}
+\keyword{difference}
+\keyword{mean}
 \keyword{odds}
 \keyword{ratio,}
 \keyword{univariate}
