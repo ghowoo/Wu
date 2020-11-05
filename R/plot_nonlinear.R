@@ -1,7 +1,7 @@
 #' A plot function for nonlinear relationship
 #'
 #' This function allows you to plot a graph on the nonlinear relationship of two variables.
-#' @param 
+#' @param
 #' @keywords plot_nonlinear
 #' @export
 
@@ -12,6 +12,8 @@ plot_nonlinear <- function(y, x, data, k = 10, family = "binomial"){
     name_y <- deparse(substitute(y))
     x <- data[[name_x]]
     y <- data[[name_y]]
+    class_x <- class(x)
+    if(class_x %in% c("Date")){x <- as.numeric(x)}
     label_x <- Wu::label(x)
     label_y <- Wu::label(y)
     if (label_x == ""){
@@ -26,6 +28,7 @@ plot_nonlinear <- function(y, x, data, k = 10, family = "binomial"){
                    , family = family
                  )
     newdata <- data.frame(x =  x[order(x)])
+    if(class_x %in% c("Date")){newdata$x <- as.Date(newdata$x, origin = "1970-01-01")}
     p <- predict(mod, newdata, type = "link", se.fit = TRUE)
     ci <- data.frame(
         x = newdata$x
