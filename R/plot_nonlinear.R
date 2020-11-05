@@ -28,8 +28,8 @@ plot_nonlinear <- function(y, x, data, k = 10, family = "binomial"){
                    , family = family
                  )
     newdata <- data.frame(x =  x[order(x)])
-    if(class_x %in% c("Date")){newdata$x <- as.Date(newdata$x, origin = "1970-01-01")}
     p <- predict(mod, newdata, type = "link", se.fit = TRUE)
+    if(class_x %in% c("Date")){newdata$x <- as.Date(newdata$x, origin = "1970-01-01")}
     ci <- data.frame(
         x = newdata$x
       , y = p$fit
