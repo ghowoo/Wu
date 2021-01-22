@@ -7,6 +7,6 @@
 add_month(data, name)
 }
 \description{
-This function allows you to add several variables to the dataframe
+Add several variables to a dataframe on a date variable with a name on a pattern "date_dob", month, year, yearmonth,weeday
 }
 \keyword{add_month}

@@ -1,6 +1,6 @@
 #' A function to add variables of month and year to a date variable
 #'
-#' This function allows you to add several variables to the dataframe
+#' Add several variables to a dataframe on a date variable with a name on a pattern "date_dob", month, year, yearmonth,weeday
 #' @param
 #' @keywords add_month
 #' @export
