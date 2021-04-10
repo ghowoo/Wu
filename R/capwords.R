@@ -1,7 +1,7 @@
 #' A capwords Function
 #'
 #' This function allows you to capitalize your words.
-#' @param 
+#' @param
 #' @keywords capitalize
 #' @export
 
