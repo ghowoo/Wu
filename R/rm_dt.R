@@ -7,6 +7,6 @@
 
 rm_dt <- function(){
     lst <- ls(envir = parent.frame())
-    list=lst[sapply(lst, function(x) {max(class(get(x)) %notin% c("function")) == 1})]
-    rm(list=list, envir = parent.frame())
+    lst=lst[sapply(lst, function(x) {max(class(get(x)) %notin% c("function")) == 1})]
+    rm(list=lst, envir = parent.frame())
 }
