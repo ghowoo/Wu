@@ -2,7 +2,7 @@
 #'
 #' This function uses package "tableone" to create table one.
 #' @param 
-#' @keywords tableone
+#' @keywords tableone tbl1
 #' @export
 
 combine_list <- function(lst){
