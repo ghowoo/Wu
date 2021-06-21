@@ -90,7 +90,7 @@ tbl1 <- function(data, vars, factorVars, ...){
 
 #' @export
 
-tbl1n <- function(vars, factorVars, ...){
+tbl1n <- function(data, vars, factorVars, ...){
   lst <- as.list(match.call())[-1]
   lst <- lst[names(lst) %notin% c("vars", "factorVars")]
   for (i in seq_along(vars)){
