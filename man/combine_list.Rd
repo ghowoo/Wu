@@ -10,3 +10,4 @@ combine_list(lst)
 This function uses package "tableone" to create table one.
 }
 \keyword{tableone}
+\keyword{tbl1}

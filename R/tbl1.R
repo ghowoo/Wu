@@ -55,12 +55,10 @@ fmt_tbl1 <- function(...){
 
 #' @export
 
-tbl1 <- function(...){
+tbl1 <- function(data, vars, factorVars, ...){
   lst <- as.list(match.call())[-1]
   args <- list(
-    vars = Vars
-  , factorVars = factorVars
-  , test = FALSE
+    test = FALSE
   , includeNA = TRUE
   , smd = TRUE
   , addOverall = FALSE
@@ -92,10 +90,11 @@ tbl1 <- function(...){
 
 #' @export
 
-tbl1n <- function(...){
+tbl1n <- function(vars, factorVars, ...){
   lst <- as.list(match.call())[-1]
-  for (i in seq_along(Vars)){
-  var <- Vars[i]
+  lst <- lst[names(lst) %notin% c("vars", "factorVars")]
+  for (i in seq_along(vars)){
+  var <- vars[i]
   if (var %in% factorVars) {
     ti <- do.call(tbl1, c(lst, vars = var, factorVars = var))
     }else{
