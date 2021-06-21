@@ -28,7 +28,6 @@ Depends:
 	, mgcv
 	, lme4
 	, flexdashboard
-	, S6
 Imports:
     data.table
     , DT
@@ -49,4 +48,3 @@ Imports:
     , mgcv
     , lme4
     , flexdashboard
-    , S6
