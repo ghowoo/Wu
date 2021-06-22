@@ -35,7 +35,7 @@ get_tbl1 <- function(...){
 #' @export
 
 fmt_tbl1 <- function(...){
-  lst <- as.list(match.call())[-1]
+  lst <- c(as.list(environment()), list(...))
   args <- list(
     printToggle = FALSE
   , catDigits = 1
@@ -56,7 +56,7 @@ fmt_tbl1 <- function(...){
 #' @export
 
 tbl1 <- function(data, vars, factorVars, ...){
-  lst <- as.list(match.call())[-1]
+  lst <- c(as.list(environment()), list(...))
   args <- list(
     test = FALSE
   , includeNA = TRUE
@@ -88,10 +88,39 @@ tbl1 <- function(data, vars, factorVars, ...){
   invisible(rtn)
 }
 
+
+#' @example
+#' library(Wu)
+#' dt <- data.table(
+#'   age = 1:10
+#' , sex = sample(c("M", "F"), size = 10, replace = TRUE)
+#' )
+#' t <- tbl1n(data = dt, vars = c("age", "sex"), factorVars = c("sex"))
+#' print(t)
+#' 
+#' library(R6)
+#' table1Class <- R6Class(
+#'   "table1Class"
+#' , list(
+#'     data = NULL
+#'   , vars = NULL
+#'   , factorVars = NULL
+#'   , table1 = NULL
+#'   , initialize = function(data, vars, factorVars, ...){
+#'     self$data <- data
+#'     self$vars <- vars
+#'     self$factorVars <- factorVars
+#'     self$table1 <- tbl1n(data = self$data, vars = self$vars, factorVars = self$factorVars) 
+#'   }
+#'   )
+#' )
+#' t1 <- table1Class$new(data = dt, vars = c("age", "sex"), factorVars = c("sex"))
+#' print(t1$table1)
+
 #' @export
 
 tbl1n <- function(data, vars, factorVars, ...){
-  lst <- as.list(match.call())[-1]
+  lst <-  c(as.list(environment()), list(...))
   lst <- lst[names(lst) %notin% c("vars", "factorVars")]
   for (i in seq_along(vars)){
   var <- vars[i]
@@ -115,4 +144,6 @@ tbl1n <- function(data, vars, factorVars, ...){
   }
   rownames(rtn) <- NULL
   invisible(rtn)
-  }
+}
+
+
