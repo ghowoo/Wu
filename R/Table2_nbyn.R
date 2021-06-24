@@ -39,10 +39,11 @@ Table2_nbyn <- function(data, var, nvars, digits_p=1, digits_c=3){
         tst1 <- fx4(x, y, digits = digits_c)
         tst2 <- fx5(x, y, digits = digits_c)
         n <- length(x)
-        n_missing <- sum(is.na(x) * is.na(y))
+        n_missing <- sum(is.na(x) | is.na(y))
         t <- data.table(""
         , "Correlation"
         , as.character(n)
+        , as.character(n - n_missing)
         , paste0(as.character(n_missing)
                , " ("
                , Wu::percent(n_missing/n, digits_p)
@@ -53,7 +54,7 @@ Table2_nbyn <- function(data, var, nvars, digits_p=1, digits_c=3){
         , tst2[1]
         , tst2[2]
           )
-        colnames(t) <- c("Variable", "Level", "N", "Missing"
+        colnames(t) <- c("Variable", "Level", "N", "n","Missing"
                        , "Pearson Cor", "p value",
                          "Spearman rho", "p value"
                      )
