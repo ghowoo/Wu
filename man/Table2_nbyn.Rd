@@ -4,7 +4,7 @@
 \alias{Table2_nbyn}
 \title{A correlation function}
 \usage{
-Table2_nbyn(data, var, nvars, digits_p = 1, digits_c = 3)
+Table2_nbyn(data, var, nvars, digits_p = 3, digits_n = 3, digits_pct = 1)
 }
 \description{
 This function allows you to get the correlation coefficients from a continuous variable against a set of continuous variables
