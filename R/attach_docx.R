@@ -2,7 +2,7 @@
 #'
 #' This function allows you to attach a docx file of a table to the html output.
 #' @param
-#' @keywords print column label
+#' @keywords attach a docx file to html output
 #' @export
 
 
@@ -12,7 +12,11 @@ attach_docx <- function(obj, file = "table1.docx"){
 }
 
 
+
+#' @param
+#' @keywords attach a csv file to html output
 #' @export
+
 attach_csv <- function(obj, filename = "table", filetype = ".csv"){
     file <- paste0(tempdir(), "/", filename, filetype)
     write.csv(obj, file, row.names = FALSE)

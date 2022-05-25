@@ -9,6 +9,10 @@ attach_docx(obj, file = "table1.docx")
 \description{
 This function allows you to attach a docx file of a table to the html output.
 }
-\keyword{column}
-\keyword{label}
-\keyword{print}
+\keyword{a}
+\keyword{attach}
+\keyword{docx}
+\keyword{file}
+\keyword{html}
+\keyword{output}
+\keyword{to}
